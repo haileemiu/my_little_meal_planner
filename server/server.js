@@ -11,6 +11,7 @@ const passport = require('./strategies/user.strategy');
 // Route includes
 const userRouter = require('./routes/user.router');
 const mlcbRouter = require('./routes/mlcb.router');
+const mealRouter = require('./routes/meal.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -26,6 +27,7 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/api/mlcb', mlcbRouter);
+app.use('/api/meal', mealRouter);
 
 // Serve static files
 app.use(express.static('build'));
