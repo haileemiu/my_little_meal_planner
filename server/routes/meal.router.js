@@ -5,8 +5,8 @@ const pool = require('../modules/pool');
 
 router.post('/', (req, res) => {
   console.log('Request in meal router:', req.body);
-  query = `INSERT INTO "temporary" ("recipe_id") VALUES ($1);`;
-  pool.query(query, [req.body.id])
+  query = `INSERT INTO "temporary" ("recipe_id", "user_id") VALUES ($1, $2);`;
+  pool.query(query, [req.body.recipe_id, req.body.user_id])
     .then(() => {
       res.sendStatus(201);
     }).catch(error => {

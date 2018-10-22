@@ -34,6 +34,10 @@ class MyRecipes extends Component {
     super(props);
     this.state = {
       recipes: [],
+      IDs: {
+        user_id: null,
+        recipe_id: null,
+      }
     }
   }
 
@@ -55,14 +59,35 @@ class MyRecipes extends Component {
   }
 
   // Add recipe id to db
-  handleAddClick = (recipe) => {
-        // WIP TEST how to get user id
+  handleAddClick = (recipe) => () => {
+    // WIP TEST how to get user id
     console.log('redux state??', this.props.user.id);
     // this.props.dispatch({ type: 'ADD_RECIPE_TO_PLANNED_MEALS', payload: recipe})
+    // axios({
+    //   method:'POST',
+    //   url: '/api/meal',
+    //   data: recipe
+    // }).then(response => {
+    //   console.log('client side response from post:', response);
+    // }).catch(error => {
+    //   console.log('error in adding recipe:', error);
+    //   alert('error in adding recipe id:');
+    // })
+
+    // WIP
+    this.setState({
+      IDs: {
+        user_id: this.props.user.id,
+        recipe_id: recipe.id,
+      }
+    })
+
+    console.log('this.state:', this.state.IDs);
+
     axios({
-      method:'POST',
+      method: 'POST',
       url: '/api/meal',
-      data: recipe
+      data: this.state.IDs
     }).then(response => {
       console.log('client side response from post:', response);
     }).catch(error => {
@@ -96,11 +121,11 @@ class MyRecipes extends Component {
                 <div>{recipe.description}</div>
               </CardContent>
               <CardActions>
-                <Button 
-                  variant="contained" 
-                  color="primary" 
+                <Button
+                  variant="contained"
+                  color="primary"
                   className={classes.button}
-                  onClick={()=> this.handleAddClick(recipe)}>
+                  onClick={this.handleAddClick(recipe)}>
                   Add
                 </Button>
               </CardActions>
