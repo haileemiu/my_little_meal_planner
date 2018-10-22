@@ -56,7 +56,8 @@ class MyRecipes extends Component {
 
   // Add recipe id to db
   handleAddClick = (recipe) => {
-    console.log('ADD:', recipe);
+        // WIP TEST how to get user id
+    console.log('redux state??', this.props.user.id);
     // this.props.dispatch({ type: 'ADD_RECIPE_TO_PLANNED_MEALS', payload: recipe})
     axios({
       method:'POST',
@@ -73,6 +74,8 @@ class MyRecipes extends Component {
   // Get on page load
   componentDidMount() {
     this.getRecipesFromMLCB();
+
+
   }
   // Render
   render() {
