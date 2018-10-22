@@ -3,20 +3,26 @@ import axios from 'axios';
 import { withStyles } from '@material-ui/core/styles';
 import 'typeface-roboto';
 import { 
+  Button,
   Card,
+  CardActions,
   CardContent,
-  CardMedia 
+  CardMedia,
+   
 } from '@material-ui/core';
 
 
-const styles = {
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  },
   card: {
     maxWidth: 345,
   },
   media: {
     height: 140,
   },
-};
+});
 
 class MyRecipes extends Component {
   constructor(props) {
@@ -85,6 +91,9 @@ class MyRecipes extends Component {
           <CardContent>
             <div>test</div>
           </CardContent>
+          <CardActions>
+            <Button variant="contained" color="primary" className={classes.button}>Add</Button>
+          </CardActions>
         </Card>
       </div>
     );
