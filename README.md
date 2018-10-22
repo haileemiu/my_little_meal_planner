@@ -1,3 +1,42 @@
+# Prime Solo Project
+As a student at Prime Digital Academy, I was given 2 weeks to create an app of my choosing. The main requirement was for it to be a full stack application (database to front end). We were provided a base repository with user side authentication.  
+
+I was required to create a scoping document in order to get my project approve. Here is a link to my original scope via Google Docs https://docs.google.com/document/d/1GBoCaqoATsNtgP0JSGVSZADa9FQPFx0l01OTN74EHRU/edit?usp=sharing.
+It includes, wire frames, schedule, base mode (MVP), possible stretch goals, wire frames, and database documentation. 
+
+---
+
+## Application Overview
+
+This will be a micro service to add to Nikko Miu's My Little Cookbook app that stores our personal family recipes. It will use the recipe API from My Little Cookbook to pull in all available recipes. 
+
+## Problems
+- Getting home late and not knowing what I am going to have for dinner.
+- Going to the grocery store and only buying staple food items.
+- Having to run out to pick up an item after I have already started dinner.
+- Buying a special ingredient for a recipe and forgetting what recipe.
+
+## Current App Downfalls
+- Too many ads!
+- Paid services 
+- Don’t make a cumulative shopping list
+- Focused on dieting
+- More complicated than necessary.
+
+## Solution
+My Little Meal Planner app will use my personal recipes to plan meals for specific dates. 
+
+
+Stretch Mode #1: 
+User will have the ability to set reminders connected with specific meals. Example reminders: 1) 7am “remember to get the chicken out to defrost”  2) 4pm “time to start making the pizza dough” 3) Extra stretch: “you have not meal planned for tonight”.  The reminders will be send via SMS text message using https://www.twilio.com/. 
+
+Stretch Mode #2: 
+User will be able to view a cumulative list of all the necessary ingredients for all planned meals for a specific date range (default to week). 
+
+
+
+---
+
 # Prime Project
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
 
