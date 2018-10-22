@@ -4,9 +4,9 @@ import axios from 'axios';
 class MyRecipes extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       recipes: [],
-     }
+    }
   }
   // Get all recipes from MLCB
   getRecipesFromMLCB = () => {
@@ -30,13 +30,33 @@ class MyRecipes extends Component {
     this.getRecipesFromMLCB();
   }
   // Render
-  render() { 
-    return ( 
+  render() {
+    return (
       <div>
         <h2>My Recipes</h2>
+        <h2>MLCB Meals</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Recipe</th>
+              <th>Description</th>
+              <th>Photo</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {this.state.recipes.map(recipe => {
+              return <tr key={recipe.id}>
+                <td>{recipe.title}</td>
+                <td>{recipe.description}</td>
+                <td>{recipe.ownerPicture}</td>
+              </tr>
+            })}
+          </tbody>
+        </table>
       </div>
-     );
+    );
   }
 } // END class component
- 
+
 export default MyRecipes;
