@@ -14,4 +14,21 @@ router.post('/', (req, res) => {
     })
 })
 
+// WIP
+router.get('/', (req, res)=> {
+  query = `SELECT * FROM "planned_meals" WHERE "user_id"=$1;`;
+  console.log('req.user:',req.user);
+  
+  console.log('Request in meal router:', req.body);
+  // TODO: it needs to know the current users id (maybe from redux store?)
+  pool.query(query, [req.user.id])
+    .then((results) => {
+      console.log('results.rows(from meal router get):', results.rows)
+      res.send(results.rows);
+    }).catch(error => {
+      console.log('Error in getting planned meals by user id:', error);
+      res.sendStatus(500);
+    })
+})
+
 module.exports = router;
