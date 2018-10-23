@@ -1,0 +1,119 @@
+{
+  "data": {
+    "recipe": {
+      "id": 2,
+      "title": "Mongolian Beef Ramen",
+      "description": "There are two reasons for tossing the beef in cornstarch. First, it makes the steak crispy and caramelized on the outside. And second, it helps thicken the sauce. If you don't have any on hand (or you forgot to pick some up), feel free to skip it. But make sure to use it next time! (Rest assured, there will be a next time.)",
+      "prepMin": 10,
+      "cookMin": 20,
+      "readyMin": 0,
+      "servings": 0,
+      "footnotes": "",
+      "source": "https://www.delish.com/cooking/recipe-ideas/recipes/a51085/mongolian-beef-ramen-recipe/",
+      "isPublic": true,
+      "viewCount": 0,
+      "ownerId": 1,
+      "createdAt": "2018-10-21T16:45:32.190704Z",
+      "updatedAt": "2018-10-21T16:45:32.190704Z",
+      "directions": [
+        {
+          "body": "Cook ramen noodles according to package instructions. Drain and set aside.",
+          "order": 0
+        },
+        {
+          "body": "In a large skillet over medium-high heat, heat oil. Toss beef with cornstarch. Add to skillet and cook until seared about 2 minutes per side. Transfer to a plate.",
+          "order": 1
+        },
+        {
+          "body": "Reduce heat to medium-low. Add sesame oil to skillet and stir in garlic and ginger. Cook until fragrant, 1 minute then add soy sauce, brown sugar, and broth. Bring mixture to a boil, reduce heat and simmer until the sauce is thickened, 3 to 5 minutes.",
+          "order": 2
+        },
+        {
+          "body": "Add broccoli and carrots then cover the skillet with a tight-fitting lid and cook until the vegetables are tender, about 5 minutes",
+          "order": 3
+        },
+        {
+          "body": "Return beef to skillet and stir until completely coated in sauce. Stir in cooked ramen noodles and green onions. Garnish with toasted sesame seeds.",
+          "order": 4
+        }
+      ],
+      "ingredients": [
+        {
+          "name": "instant ramen (discard flavor pack)",
+          "measure": "3 count",
+          "order": 0
+        },
+        {
+          "name": "vegetable oil",
+          "measure": "2 tbsp",
+          "order": 1
+        },
+        {
+          "name": "sirloin steak, sliced against the grain",
+          "measure": "1 lb",
+          "order": 2
+        },
+        {
+          "name": "cornstarch",
+          "measure": "2 tbsp",
+          "order": 3
+        },
+        {
+          "name": "sesame oil",
+          "measure": "1 tbsp",
+          "order": 4
+        },
+        {
+          "name": "garlic cloves, minced",
+          "measure": "3 count",
+          "order": 5
+        },
+        {
+          "name": "minced ginger",
+          "measure": "1 tsp",
+          "order": 6
+        },
+        {
+          "name": "soy sauce",
+          "measure": "1/2 cup",
+          "order": 7
+        },
+        {
+          "name": "lightly packed brown sugar",
+          "measure": "1/4 cup",
+          "order": 8
+        },
+        {
+          "name": "chicken (or beef) broth",
+          "measure": "1 cup",
+          "order": 9
+        },
+        {
+          "name": "red pepper flakes",
+          "measure": "pinch",
+          "order": 10
+        },
+        {
+          "name": "broccoli, cut into florets",
+          "measure": "1 large head",
+          "order": 11
+        },
+        {
+          "name": "carrot, peeled and cut into matchsticks",
+          "measure": "1 count",
+          "order": 12
+        },
+        {
+          "name": "green onions, thinly sliced",
+          "measure": "3 count",
+          "order": 13
+        },
+        {
+          "name": "Toasted sesame seeds",
+          "measure": "garnish",
+          "order": 14
+        }
+      ]
+    }
+  }
+}

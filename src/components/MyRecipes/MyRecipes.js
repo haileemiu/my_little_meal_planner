@@ -43,6 +43,7 @@ class MyRecipes extends Component {
       url: '/api/mlcb'
     }).then(response => {
       this.setState({
+        // recipes: response.data.recipes,
         recipes: response.data.recipes,
       })
     }).catch(error => {
@@ -79,8 +80,6 @@ class MyRecipes extends Component {
     return (
       <div>
         <h2>My Recipes</h2>
-
-
         <Grid container spacing={24}>
           {this.state.recipes.map(recipe => {
             return <Card className={classes.card} key={recipe.id}>
@@ -92,6 +91,14 @@ class MyRecipes extends Component {
               <CardContent>
                 <div>{recipe.title}</div>
                 <div>{recipe.description}</div>
+                {/* TEST GET INGREDIENTS */}
+                <div>
+                  <ul>
+                    {recipe.ingredients && recipe.ingredients.map(ingredient => (
+                      <li>{ingredient.name} - {ingredient.measure}</li>
+                    ))}
+                  </ul>
+                </div>
               </CardContent>
               <CardActions>
                 <Button
