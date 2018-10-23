@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Meals extends Component {
+class Plan extends Component {
 
     constructor(props) {
 
@@ -13,11 +13,11 @@ class Meals extends Component {
   render() { 
     return ( 
       <div>
-        <h3>My Meals</h3>
+        <h3>My Plan</h3>
         
       </div>
      );
   }
 }
  
-export default Meals;
+export default Plan;
