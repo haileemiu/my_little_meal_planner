@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import 'typeface-roboto';
 import {
@@ -31,6 +32,7 @@ class MyRecipes extends Component {
     super(props);
     this.state = {
       recipes: [],
+      IDs: {},
     }
   }
 
@@ -40,21 +42,37 @@ class MyRecipes extends Component {
       method: 'GET',
       url: '/api/mlcb'
     }).then(response => {
-      console.log('response from server:', response.data.recipes);
       this.setState({
         recipes: response.data.recipes,
       })
-      // console.log('state:', this.state.recipes)
     }).catch(error => {
       console.log('ERROR:', error);
       alert('Error in getting recipes from MLCB');
     })
   }
 
-  // Get on page load
+  // Post ids to table
+  handleAddClick = (recipe) => () => {
+    axios({
+      method: 'POST',
+      url: '/api/meal',
+      data: {
+        user_id: this.props.user.id,
+        recipe_id: recipe.id,
+      }
+    }).then(response => {
+      console.log('client side response from post:', response);
+    }).catch(error => {
+      console.log('error in adding recipe:', error);
+      alert('error in adding recipe id:');
+    })
+
+  }
+  // Get all recipes on page load
   componentDidMount() {
     this.getRecipesFromMLCB();
   }
+
   // Render
   render() {
     const { classes } = this.props;
@@ -62,27 +80,7 @@ class MyRecipes extends Component {
       <div>
         <h2>My Recipes</h2>
 
-        {/* <table>
-          <thead>
-            <tr>
-              <th>Recipe</th>
-              <th>Description</th>
-              <th>Photo</th>
-            </tr>
-          </thead>
 
-          <tbody>
-            {this.state.recipes.map(recipe => {
-              return <tr key={recipe.id}>
-                <td>{recipe.title}</td>
-                <td>{recipe.description}</td>
-                <td>{recipe.ownerPicture}</td>
-              </tr>
-            })}
-          </tbody>
-        </table>  */}
-
-        {/* Card View */}
         <Grid container spacing={24}>
           {this.state.recipes.map(recipe => {
             return <Card className={classes.card} key={recipe.id}>
@@ -96,7 +94,13 @@ class MyRecipes extends Component {
                 <div>{recipe.description}</div>
               </CardContent>
               <CardActions>
-                <Button variant="contained" color="primary" className={classes.button}>Add</Button>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className={classes.button}
+                  onClick={this.handleAddClick(recipe)}>
+                  Add
+                </Button>
               </CardActions>
             </Card>
 
@@ -107,4 +111,10 @@ class MyRecipes extends Component {
   }
 } // END class component
 
-export default withStyles(styles)(MyRecipes);
+const mapStateToProps = (reduxState) => {
+  return reduxState;
+}
+
+const styledRecipeList = withStyles(styles)(MyRecipes);
+
+export default connect(mapStateToProps)(styledRecipeList);
