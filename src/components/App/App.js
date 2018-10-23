@@ -16,6 +16,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import MyRecipes from '../MyRecipes/MyRecipes';
+import PlanView from '../PlanView/PlanView';
 
 import './App.css';
 
@@ -54,6 +55,11 @@ class App extends Component {
               exact
               path="/myrecipes"
               component={MyRecipes}
+            />
+             <ProtectedRoute
+              exact
+              path="/mealplan"
+              component={PlanView}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
