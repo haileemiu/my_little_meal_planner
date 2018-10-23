@@ -14,13 +14,9 @@ router.post('/', (req, res) => {
     })
 })
 
-// WIP
 router.get('/', (req, res)=> {
   query = `SELECT * FROM "planned_meals" WHERE "user_id"=$1;`;
-  console.log('req.user:',req.user);
-  
-  console.log('Request in meal router:', req.body);
-  // TODO: it needs to know the current users id (maybe from redux store?)
+  // send the user ID
   pool.query(query, [req.user.id])
     .then((results) => {
       console.log('results.rows(from meal router get):', results.rows)

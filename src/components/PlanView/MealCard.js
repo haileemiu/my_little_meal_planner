@@ -7,22 +7,20 @@ class MealCard extends Component {
     constructor(props) {
 
       super(props);
-      this.state = {
-
-      }
+      // this.state = {
+      
+      // }
     }
 
-    // Function to get the db info/
-    // WIP
+    // Get the available_meals data
     getAvailableMeals = () => {
-      console.log('data sending in getAvailableMeals:', this.props.user);
       axios({
         method: 'GET',
-        url: `/api/meal`,
+        url: '/api/meal',
       }).then(response => {
-        console.log('Response in getAvailableMeals:', response);
+        console.log('Response in getAvailableMeals:', response.data);
+
       }).catch(error => {
-        alert('Error with getAvailableMeals');
         console.log('Error in getAvailableMeals:', error);
       })
     }
