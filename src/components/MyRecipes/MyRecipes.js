@@ -92,13 +92,13 @@ class MyRecipes extends Component {
                 <div>{recipe.title}</div>
                 <div>{recipe.description}</div>
                 {/* TEST GET INGREDIENTS */}
-                <div>
+                {/* <div>
                   <ul>
                     {recipe.ingredients && recipe.ingredients.map(ingredient => (
                       <li>{ingredient.name} - {ingredient.measure}</li>
                     ))}
                   </ul>
-                </div>
+                </div> */}
               </CardContent>
               <CardActions>
                 <Button
