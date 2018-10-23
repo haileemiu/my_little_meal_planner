@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 
 // Get specific recipe for user
 router.get('/:id', (req, res) => {
-    console.log('REQUEST in mlcb router:', req.params);
+    // console.log('REQUEST in mlcb router:', req.params);
     axios({
         method: 'GET',
         url: `https://mlcb.tyvoid.net/api/v1/recipes/${req.params.id}`

@@ -19,6 +19,12 @@ class MealCard extends Component {
         method: 'GET',
         url: `/api/meal`,
       }).then(response => {
+        // run function on return
+        this.getPlannedRecipe(this.state.planned_meal);
+        this.setState({
+          planned_meal:response.data[0].recipe_id
+        })
+
         // WIP testing with only 1 recipe
         console.log('response.data:', response.data);
         console.log('Response in getAvailableMeals:', response.data[0].recipe_id);
@@ -26,19 +32,22 @@ class MealCard extends Component {
         // Create an array of recipe ids
         let recipe_ids = response.data.map(i => i.recipe_id);
         console.log('recipe_ids:', recipe_ids);
+        // create an array of axios requests 
         let array = [];
         for (let id of recipe_ids) {
           array.push(axios.get(`/api/mlcb/${id}`))
         }
-        Promise.all(array).then(responses => console.log(responses));
-        console.log(array);
-        
+        // send all of the axios requests 
+        Promise.all(array).then(responses => console.log('Response from promise.all:',responses));
+        console.log('Array:', array);
+        console.log('testing:', )
+        // loop through the responses to get relevant data
+        // let a = [];
+        // for (let recipe of array) {
+        //   a.push(recipe.title);
+        // }
 
-        this.setState({
-          planned_meal:response.data[0].recipe_id
-        })
-        // run function on return
-        this.getPlannedRecipe(this.state.planned_meal);
+        
       }).catch(error => {
         console.log('Error in getAvailableMeals:', error);
       })
