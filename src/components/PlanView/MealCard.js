@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-
 import { withStyles } from '@material-ui/core/styles';
 import 'typeface-roboto';
 import {
@@ -10,8 +9,6 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  Grid,
-
 } from '@material-ui/core';
 
 const styles = theme => ({
@@ -27,15 +24,9 @@ const styles = theme => ({
 });
 
 class MealCard extends Component {
-
     constructor(props) {
-
       super(props);
       this.state = {
-        // meals: [],
-        // WIP getting 1 specific meal
-        planned_meal:0,
-        // real one
         myMeals:[]
       }
     }
@@ -47,22 +38,17 @@ class MealCard extends Component {
       }).then(response => {
         // run function on return
         this.getPlannedRecipe(this.state.planned_meal);
-        this.setState({
-          planned_meal:response.data[0].recipe_id
-        })
 
-        // WIP testing with only 1 recipe
-        console.log('response.data:', response.data);
-        console.log('Response in getAvailableMeals:', response.data[0].recipe_id);
-       
         // Create an array of recipe ids
         let recipe_ids = response.data.map(i => i.recipe_id);
         console.log('recipe_ids:', recipe_ids);
+
         // create an array of axios requests 
         let array = [];
         for (let id of recipe_ids) {
           array.push(axios.get(`/api/mlcb/${id}`))
         }
+
         // send all of the axios requests 
         Promise.all(array).then(responses => {
           console.log('Response from promise.all:',responses)
@@ -70,8 +56,8 @@ class MealCard extends Component {
           for (let meal of responses) {
             myMeals.push(meal);
           }
-          console.log('myMeals:', myMeals);
 
+          // Set local state
           this.setState({
             myMeals: myMeals
           })
@@ -82,23 +68,20 @@ class MealCard extends Component {
       })
     }
 
-    // WIP testing with only 1 recipe
+    // Called inside of getAvailableMeals
     getPlannedRecipe = (id) => {
       axios({
         method: 'GET', 
-        // WIP
         url: `/api/mlcb/${id}`,
       }).then(response => {
-        // console.log('getPlannedRecipe response:', response.data);
-        this.setState({
-          meals:response.data
-        })
+        console.log('getPlannedRecipe:', response)
       }).catch(error => {
         console.log('error in getPlannedRecipe:', error);
         alert('ERROR in getPlannedRecipe');
       })
     }
 
+    // load the users available meals on page load
     componentDidMount() {
       this.getAvailableMeals();
     }
@@ -107,7 +90,6 @@ class MealCard extends Component {
     const { classes } = this.props;
     return ( 
       <div>
-        <h3>Recipe Card</h3>
 
         {this.state.myMeals.map(meal => {
           return <Card className={classes.card} key={meal.data.data.recipe.id}>

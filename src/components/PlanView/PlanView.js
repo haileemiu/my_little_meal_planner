@@ -1,25 +1,21 @@
 import React, { Component } from 'react';
 import Meals from './MealsComponent';
 import Plan from './PlanComponent';
-import MealCard from './MealCard';
 
+// Likely change to functional component
 class PlanView extends Component {
-
     constructor(props) {
-
       super(props);
       this.state = {
-
       }
     }
 
   render() { 
     return ( 
       <div>
-        <h3>My Meal Plan</h3>
         <Meals />
         <Plan />
-        <MealCard />
+        
       </div>
      );
   }
