@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
@@ -36,9 +35,9 @@ class MealCard extends Component {
     super(props);
     this.state = {
       // WIP test
-      meals: [],
+      recipes: [],
       // ^
-      myMeals: [],
+      // myMeals: [],
       // WIP
       startDate: moment()
       // ^
@@ -56,36 +55,55 @@ class MealCard extends Component {
     }).then(response => {
       console.log('Available Meals from db table:', response.data);
 
-
       // Create an array of recipe ids
-      let recipe_ids = response.data.map(i => i.recipe_id);
-      console.log('recipe_ids:', recipe_ids);
+      // let recipe_ids = response.data.map(i => i.recipe_id);
+      // console.log('recipe_ids:', recipe_ids);
       // WIP test
       let meals = response.data.map(meal => ({id: meal.id, recipe_id: meal.recipe_id}));
       console.log('TEST meals:', meals);
       // ^
 
-
       // create an array of axios requests 
-      let array = [];
-      for (let id of recipe_ids) {
-        array.push(axios.get(`/api/mlcb/${id}`))
+      // let array = [];
+      // for (let id of recipe_ids) {
+      //   array.push(axios.get(`/api/mlcb/${id}`))
+      // }
+      // WIP test
+      let mealIDsArray = [];
+      for (let recipe_id of meals) {
+        mealIDsArray.push(axios.get(`/api/mlcb/${recipe_id}`))
       }
+      // ^
 
       // send all of the axios requests 
-      Promise.all(array).then(responses => {
+      // Promise.all(array).then(responses => {
+      //   console.log('Response from promise.all:', responses)
+      //   let myMeals = [];
+      //   for (let meal of responses) {
+      //     myMeals.push(meal);
+      //   }
+
+      // WIP test
+      Promise.all(mealIDsArray).then(responses => {
         console.log('Response from promise.all:', responses)
-        let myMeals = [];
+        let recipes = [];
         for (let meal of responses) {
-          myMeals.push(meal);
+          recipes.push(meal);
         }
+      // ^
 
         // Set local state
-        this.setState({
-          myMeals: myMeals
-        })
+        // this.setState({
+        //   myMeals: myMeals
+        // })
+        
+        // WIP test
+          this.setState({
+            recipes: recipes
+          })
+        // ^
 
-        console.log('myMeals:', myMeals)
+        console.log('recipes:', recipes)
       });
 
     }).catch(error => {
@@ -95,17 +113,17 @@ class MealCard extends Component {
 
   // Called inside of getAvailableMeals
   // id of the recipe in my db table
-  getPlannedRecipe = (id) => {
-    axios({
-      method: 'GET',
-      url: `/api/mlcb/${id}`,
-    }).then(response => {
-      console.log('getPlannedRecipe:', response)
-    }).catch(error => {
-      console.log('error in getPlannedRecipe:', error);
-      alert('ERROR in getPlannedRecipe');
-    })
-  }
+  // getPlannedRecipe = (id) => {
+  //   axios({
+  //     method: 'GET',
+  //     url: `/api/mlcb/${id}`,
+  //   }).then(response => {
+  //     console.log('getPlannedRecipe:', response)
+  //   }).catch(error => {
+  //     console.log('error in getPlannedRecipe:', error);
+  //     alert('ERROR in getPlannedRecipe');
+  //   })
+  // }
 
   // WIP
   handleDateChange(date) {
