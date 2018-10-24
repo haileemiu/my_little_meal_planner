@@ -31,7 +31,7 @@ router.get('/', (req, res)=> {
 // WIP
 // Update date
 router.put('/', (req, res) => {
-  query = `UPDATE "planned_meals" SET "planned_day" =$1 WHERE id=$2;`;
+  query = `UPDATE "planned_meals" SET "planned_day"=$1 WHERE id=$2;`;
   // TO DO: date and id
   pool.query(query, [])
     .then(results => {
