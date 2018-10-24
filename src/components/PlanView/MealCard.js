@@ -35,14 +35,17 @@ class MealCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // WIP test
+      meals: [],
+      // ^
       myMeals: [],
       // WIP
       startDate: moment()
-      // ---
+      // ^
     }
     // WIP
     this.handleDateChange = this.handleDateChange.bind(this);
-    // ---
+    // ^
   }
 
   // Get the specific meals saved by that user
@@ -51,13 +54,17 @@ class MealCard extends Component {
       method: 'GET',
       url: `/api/meal`,
     }).then(response => {
-      console.log('Available Meals from db table:', response);
-      // run function on return
-      this.getPlannedRecipe(this.state.planned_meal);
+      console.log('Available Meals from db table:', response.data);
+
 
       // Create an array of recipe ids
       let recipe_ids = response.data.map(i => i.recipe_id);
       console.log('recipe_ids:', recipe_ids);
+      // WIP test
+      let meals = response.data.map(meal => ({id: meal.id, recipe_id: meal.recipe_id}));
+      console.log('TEST meals:', meals);
+      // ^
+
 
       // create an array of axios requests 
       let array = [];
@@ -106,7 +113,7 @@ class MealCard extends Component {
       startDate: date
     });
   }
-  // ---
+  // ^
 
   componentDidMount() {
     this.getAvailableMeals();
@@ -141,10 +148,8 @@ class MealCard extends Component {
 
                 <button>Submit</button>
               
-              {/* --- */}
-            {/* <Button>
-              Assign Date
-            </Button> */}
+              {/* ^^^ */}
+
               <Button>
                 Remove
             </Button>
