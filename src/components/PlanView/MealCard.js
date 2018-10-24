@@ -10,14 +10,12 @@ import {
   CardContent,
   CardMedia,
 } from '@material-ui/core';
-
-// WIP
+// Imports for dates
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
-
 import 'react-datepicker/dist/react-datepicker.css';
-// ----
 
+// Styles for material UI
 const styles = theme => ({
   button: {
     margin: theme.spacing.unit,
@@ -30,22 +28,16 @@ const styles = theme => ({
   },
 });
 
+// Class component
 class MealCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // WIP test
-      recipes: [],
       meals: [],
-      // ^
-      // myMeals: [],
-      // WIP
+      plannedMeals: [],
       startDate: moment()
-      // ^
     }
-    // WIP
     this.handleDateChange = this.handleDateChange.bind(this);
-    // ^
   }
 
   // Get the specific meals saved by that user
@@ -56,104 +48,65 @@ class MealCard extends Component {
     }).then(response => {
       console.log('Available Meals from db table:', response.data);
 
-      // Create an array of recipe ids
-      // let recipe_ids = response.data.map(i => i.recipe_id);
-      // console.log('recipe_ids:', recipe_ids);
-      // WIP test
+      // Create an array of objects for recipe ids and meal ids
       let meals = response.data.map(meal => ({id: meal.id, recipe_id: meal.recipe_id}));
       this.setState({
         meals: meals
       })
-      console.log('TEST meals:', meals);
-      // ^
 
-      // create an array of axios requests 
-      // let array = [];
-      // for (let id of recipe_ids) {
-      //   array.push(axios.get(`/api/mlcb/${id}`))
-      // }
-      // WIP test
-      let mealIDsArray = [];
-      for (let x of meals) {
-        mealIDsArray.push(axios.get(`/api/mlcb/${x.recipe_id}`))
+      // Create an array promises
+      let promiseArray = [];
+      for (let promise of meals) {
+        promiseArray.push(axios.get(`/api/mlcb/${promise.recipe_id}`))
       }
-      // ^
-
-      // send all of the axios requests 
-      // Promise.all(array).then(responses => {
-      //   console.log('Response from promise.all:', responses)
-      //   let myMeals = [];
-      //   for (let meal of responses) {
-      //     myMeals.push(meal);
-      //   }
-
-      // WIP test
-      Promise.all(mealIDsArray).then(responses => {
+     
+      // Send multiple axios get requests for all the recipe data
+      Promise.all(promiseArray).then(responses => {
         console.log('Response from promise.all:', responses)
-        let recipes = [];
+        // Create an array of recipes
+        let plannedMeals = [];
         for (let meal of responses) {
-          recipes.push(meal.data.data.recipe);
+          plannedMeals.push(meal.data.data.recipe);
         }
-      // ^
-        for (let i=0; i < recipes.length; i++) {
-          recipes[i] = {
-            ...recipes[i],
+        console.log(plannedMeals);
+
+        // Keep the recipe ids and meal ids
+        for (let i=0; i < plannedMeals.length; i++) {
+          plannedMeals[i] = {
+            ...plannedMeals[i],
             meal_id: meals[i].id, 
           }
         }
-        console.log(recipes);
-        // Set local state
-        // this.setState({
-        //   myMeals: myMeals
-        // })
-        
-        // WIP test
-          this.setState({
-            recipes: recipes
-          })
-        // ^
-
-        console.log('recipes:', recipes)
+        this.setState({
+          plannedMeals: plannedMeals
+        }) 
+        console.log('this.state.recipes:',this.state.plannedMeals);
       });
-
     }).catch(error => {
       console.log('Error in getAvailableMeals:', error);
     })
   }
 
-  // Called inside of getAvailableMeals
-  // id of the recipe in my db table
-  // getPlannedRecipe = (id) => {
-  //   axios({
-  //     method: 'GET',
-  //     url: `/api/mlcb/${id}`,
-  //   }).then(response => {
-  //     console.log('getPlannedRecipe:', response)
-  //   }).catch(error => {
-  //     console.log('error in getPlannedRecipe:', error);
-  //     alert('ERROR in getPlannedRecipe');
-  //   })
-  // }
-
-  // WIP
+  // Date
   handleDateChange(date) {
     this.setState({
       startDate: date
     });
   }
-  // ^
 
+  // On Page Load
   componentDidMount() {
     this.getAvailableMeals();
   }
 
+  // Render
   render() {
     const { classes } = this.props;
     return (
       <div>
 
-        {this.state.recipes.map(meal => {
-          // TO DO key needs to not be recipe id
+        {this.state.plannedMeals.map(meal => {
+          
           return <Card className={classes.card} key={meal.meal_id}>
             <CardMedia
               className={classes.media}
@@ -162,22 +115,22 @@ class MealCard extends Component {
             />
             <CardContent>
               <div>{meal.title}</div>
-
             </CardContent>
 
             <CardActions>
-        
                 <p>Assign Date</p>
-
                 <DatePicker
                 selected={this.state.startDate}
                 onChange={this.handleDateChange}
                 />
-
-                <button>Submit</button>
-              
-       
-              <Button>
+                <Button 
+                variant="contained" color="primary" 
+                className={classes.button}>Submit
+                </Button>
+              <Button 
+              variant="contained" 
+              color="secondary" 
+              className={classes.button}>
                 Remove
             </Button>
             </CardActions>
@@ -185,9 +138,7 @@ class MealCard extends Component {
           </Card>
         })}
 
-
-
-        <pre>{JSON.stringify(this.state.myMeals, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(this.state, null, 2)}</pre> */}
 
       </div>
     );
@@ -197,7 +148,5 @@ class MealCard extends Component {
 const mapStateToProps = (reduxState) => {
   return reduxState;
 }
-
 const styledMealCard = withStyles(styles)(MealCard);
-
 export default connect(mapStateToProps)(styledMealCard);
