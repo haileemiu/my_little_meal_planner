@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
+import MealCard from './MealCard';
 
+// Likely change to functional component
 class Meals extends Component {
-
     constructor(props) {
-
       super(props);
       this.state = {
-
       }
     }
 
@@ -14,7 +13,7 @@ class Meals extends Component {
     return ( 
       <div>
         <h3>My Meals</h3>
-        
+        <MealCard />
       </div>
      );
   }
