@@ -28,11 +28,9 @@ router.get('/', (req, res)=> {
     })
 })
 
-// WIP
 // Update date
 router.put('/:id', (req, res) => {
   query = `UPDATE "planned_meals" SET "planned_day"=$1 WHERE id=$2;`;
-  // TO DO: date and id
   pool.query(query, [req.body.newDate, req.params.id])
     .then(results => {
       console.log('Results from put router:', results);
@@ -43,5 +41,5 @@ router.put('/:id', (req, res) => {
       res.sendStatus(500);
     })
 })
-// ---
+
 module.exports = router;
