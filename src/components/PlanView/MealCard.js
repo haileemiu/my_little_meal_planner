@@ -46,7 +46,7 @@ class MealCard extends Component {
       method: 'GET',
       url: `/api/meal`,
     }).then(response => {
-      console.log('Available Meals from db table:', response.data);
+      // console.log('Available Meals from db table:', response.data);
 
       // Create an array of objects for recipe ids and meal ids
       let meals = response.data.map(meal => ({ id: meal.id, recipe_id: meal.recipe_id }));
@@ -62,13 +62,13 @@ class MealCard extends Component {
 
       // Send multiple axios get requests for all the recipe data
       Promise.all(promiseArray).then(responses => {
-        console.log('Response from promise.all:', responses)
+        // console.log('Response from promise.all:', responses)
         // Create an array of recipes
         let plannedMeals = [];
         for (let meal of responses) {
           plannedMeals.push(meal.data.data.recipe);
         }
-        console.log('plannedMeals:', plannedMeals);
+        // console.log('plannedMeals:', plannedMeals);
 
         // Keep the recipe ids and meal ids
         for (let i = 0; i < plannedMeals.length; i++) {
@@ -80,7 +80,7 @@ class MealCard extends Component {
         this.setState({
           plannedMeals: plannedMeals
         })
-        console.log('this.state.recipes:', this.state.plannedMeals);
+        // console.log('this.state.recipes:', this.state.plannedMeals);
       });
     }).catch(error => {
       console.log('Error in getAvailableMeals:', error);
@@ -89,7 +89,7 @@ class MealCard extends Component {
 
   // Date box
   handleDateChange = (event) => {
-    console.log('event',event);
+    // console.log('event',event);
     this.setState({
       startDate: event
     });
