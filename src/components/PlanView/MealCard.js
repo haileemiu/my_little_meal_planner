@@ -49,7 +49,7 @@ class MealCard extends Component {
       console.log('Available Meals from db table:', response.data);
 
       // Create an array of objects for recipe ids and meal ids
-      let meals = response.data.map(meal => ({id: meal.id, recipe_id: meal.recipe_id}));
+      let meals = response.data.map(meal => ({ id: meal.id, recipe_id: meal.recipe_id }));
       this.setState({
         meals: meals
       })
@@ -59,7 +59,7 @@ class MealCard extends Component {
       for (let promise of meals) {
         promiseArray.push(axios.get(`/api/mlcb/${promise.recipe_id}`))
       }
-     
+
       // Send multiple axios get requests for all the recipe data
       Promise.all(promiseArray).then(responses => {
         console.log('Response from promise.all:', responses)
@@ -68,30 +68,49 @@ class MealCard extends Component {
         for (let meal of responses) {
           plannedMeals.push(meal.data.data.recipe);
         }
-        console.log(plannedMeals);
+        console.log('plannedMeals:', plannedMeals);
 
         // Keep the recipe ids and meal ids
-        for (let i=0; i < plannedMeals.length; i++) {
+        for (let i = 0; i < plannedMeals.length; i++) {
           plannedMeals[i] = {
             ...plannedMeals[i],
-            meal_id: meals[i].id, 
+            meal_id: meals[i].id,
           }
         }
         this.setState({
           plannedMeals: plannedMeals
-        }) 
-        console.log('this.state.recipes:',this.state.plannedMeals);
+        })
+        console.log('this.state.recipes:', this.state.plannedMeals);
       });
     }).catch(error => {
       console.log('Error in getAvailableMeals:', error);
     })
   }
 
-  // Date
-  handleDateChange(date) {
+  // Date box
+  handleDateChange = (event) => {
+    console.log('event',event);
+    // WIP 
+    // Use moment js to give date in the correct format
+    // let x = moment(date).format('L');
+    // console.log('Format date:', x);
     this.setState({
-      startDate: date
+      startDate: event
     });
+  }
+  // update date
+  submitDate = (meal_id) => () => {
+
+    axios({
+      method: 'PUT', 
+      url:`/api/meal/${meal_id}`, 
+      data: {newDate: this.state.startDate}
+    }).then(response => {
+      console.log('Response from submitDate:',response)
+    }).catch(error => {
+      console.log('ERROR in updating date:', error);
+    })
+
   }
 
   // On Page Load
@@ -106,7 +125,7 @@ class MealCard extends Component {
       <div>
 
         {this.state.plannedMeals.map(meal => {
-          
+
           return <Card className={classes.card} key={meal.meal_id}>
             <CardMedia
               className={classes.media}
@@ -118,19 +137,25 @@ class MealCard extends Component {
             </CardContent>
 
             <CardActions>
-                <p>Assign Date</p>
-                <DatePicker
+              <p>Assign Date</p>
+              <DatePicker
                 selected={this.state.startDate}
+                
                 onChange={this.handleDateChange}
-                />
-                <Button 
-                variant="contained" color="primary" 
-                className={classes.button}>Submit
+                // onChange={this.handleDateChange}
+                
+              />
+              <Button
+                variant="contained" color="primary"
+                className={classes.button}
+                onClick={this.submitDate(meal.meal_id)}
+                >
+                Submit
                 </Button>
-              <Button 
-              variant="contained" 
-              color="secondary" 
-              className={classes.button}>
+              <Button
+                variant="contained"
+                color="secondary"
+                className={classes.button}>
                 Remove
             </Button>
             </CardActions>

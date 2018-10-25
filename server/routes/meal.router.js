@@ -30,12 +30,13 @@ router.get('/', (req, res)=> {
 
 // WIP
 // Update date
-router.put('/', (req, res) => {
+router.put('/:id', (req, res) => {
   query = `UPDATE "planned_meals" SET "planned_day"=$1 WHERE id=$2;`;
   // TO DO: date and id
-  pool.query(query, [])
+  pool.query(query, [req.body.newDate, req.params.id])
     .then(results => {
       console.log('Results from put router:', results);
+      console.log('Results.rows from put router:', results.rows);
       res.send(results.rows);
     }).catch(error => {
       console.log('Error in put router:', error);
