@@ -43,8 +43,8 @@ router.put('/:id', (req, res) => {
 })
 
 // Get back the planned meals that have dates assigned
-router.get('/', (req, res) => {
-  query=`SELECT * FROM "planned_meals" 
+router.get('/planned', (req, res) => {
+  query=`SELECT id, user_id, recipe_id, TO_CHAR("planned_day", 'MM/DD/YY') as planned_day FROM "planned_meals" 
   WHERE "user_id"=$1 
   AND "planned_day" IS NOT NULL
   ORDER BY "planned_day";`;
