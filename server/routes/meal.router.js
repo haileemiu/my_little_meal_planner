@@ -14,6 +14,7 @@ router.post('/', (req, res) => {
       res.sendStatus(500);
     })
 })
+
 // Get all recipe ids for the user
 router.get('/', (req, res)=> {
   query = `SELECT * FROM "planned_meals" WHERE "user_id"=$1;`;

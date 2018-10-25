@@ -16,7 +16,8 @@ router.get('/', (req, res) => {
     });
 })
 
-// Get specific recipe for user
+// Get specific recipe for user 
+// Used twice
 router.get('/:id', (req, res) => {
     // console.log('REQUEST in mlcb router:', req.params);
     axios({
