@@ -98,7 +98,7 @@ class Plan extends Component {
               <TableCell>Day</TableCell>
               <TableCell>Meal</TableCell>
               <TableCell>Description</TableCell>
-              <TableCell>Actions</TableCell>
+              
             </TableRow>
           </TableHead>
 
