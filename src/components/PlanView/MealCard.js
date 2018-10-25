@@ -96,7 +96,6 @@ class MealCard extends Component {
   }
   // update date
   submitDate = (meal_id) => () => {
-
     axios({
       method: 'PUT', 
       url:`/api/meal/${meal_id}`, 
@@ -105,6 +104,19 @@ class MealCard extends Component {
       console.log('Response from submitDate:',response)
     }).catch(error => {
       console.log('ERROR in updating date:', error);
+    })
+  }
+
+  // Remove meal from planned meals db table
+  removeMeal = (meal_id) => () => {
+    axios({
+      method:'DELETE',
+      url:`/api/meal/delete/${meal_id}`
+    }).then(() => {
+      alert('That meal has been removed from My Meals. But it is still available in My Recipes.');
+      this.getAvailableMeals();
+    }).catch(error => {
+      console.log('Error in deleting:', error);
     })
   }
 
@@ -148,7 +160,8 @@ class MealCard extends Component {
               <Button
                 variant="contained"
                 color="secondary"
-                className={classes.button}>
+                className={classes.button}
+                onClick={this.removeMeal(meal.meal_id)} >
                 Remove
               </Button>
             </CardActions>

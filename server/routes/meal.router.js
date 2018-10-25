@@ -56,6 +56,17 @@ router.get('/planned', (req, res) => {
       console.log('Error in get planned meals router:', error);
       res.sendStatus(500);
     })
+
+  // Delete row
+  router.delete('/delete/:id', (req, res) => {
+    query = `DELETE FROM "planned_meals" WHERE id=$1`;
+    pool.query(query, [req.params.id])
+    .then(() => {
+      res.sendStatus(200);
+    }).catch(() => {
+      res.sendStatus(500);
+    })
+  })
 })
 
 module.exports = router;
