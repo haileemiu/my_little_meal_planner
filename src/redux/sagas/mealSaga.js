@@ -10,11 +10,10 @@ function* fetchRecipes() {
   }
 }
 
-function* addMeal() {
+function* addMeal(action) {
+  console.log('TEST:',action.payload);
   try {
-    const meal = yield call(axios.put, '/api/meal');
-    
-  yield put({ type: 'ADD_MEAL', payload: meal });
+    yield call(axios.post, `/api/meal`, action.payload);
     
   } catch (error) {
     console.log(error => ('ERROR in addMeal:', error))
@@ -23,7 +22,7 @@ function* addMeal() {
 
 function* mealSaga() {
   yield takeLatest('FETCH_RECIPES', fetchRecipes);
-  // yield takeLatest('ADD_MEAL', addMeal);
+  yield takeLatest('ADD_MEAL', addMeal);
 }
 
 export default mealSaga;
