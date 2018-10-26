@@ -97,23 +97,30 @@ class Plan extends Component {
             <TableRow>
               <TableCell>Day</TableCell>
               <TableCell>Meal</TableCell>
-              <TableCell>Description</TableCell>
-              
+              <TableCell>Ingredients</TableCell>
+
             </TableRow>
           </TableHead>
 
           <TableBody>
             {this.state.plannedMeals.map(meal => {
+              console.log('TEST:', meal);
               return <TableRow key={meal.id}>
                 <TableCell>{meal.planned_day}</TableCell>
                 <TableCell>{meal.title}</TableCell>
-                <TableCell>{meal.description}</TableCell>
+                <TableCell>
+                  <ul key={meal.id}>
+                    {meal.ingredients.map(ingredient => (
+                      <li>{ingredient.measure} - {ingredient.name}</li>
+                    ))}
+                  </ul>
+                </TableCell>
               </TableRow>
             })}
           </TableBody>
         </Table>
 
-        {/* <pre>{JSON.stringify(this.state.plannedMeals, null, 2)}</pre> */}
+        <pre>{JSON.stringify(this.state.plannedMeals, null, 2)}</pre>
       </div>
     );
   }
@@ -122,3 +129,17 @@ class Plan extends Component {
 const styledTable = withStyles(styles)(Plan);
 
 export default connect()(styledTable);
+
+// TEST GET INGREDIENTS
+// <div>
+//   <ul>
+//     {recipe.ingredients && recipe.ingredients.map(ingredient => (
+//       <li>{ingredient.name} - {ingredient.measure}</li>
+//     ))}
+//   </ul>
+// </div>
+
+// {meal.id.map(ingredient => {
+//   return <ul>
+//   <li>{ingredient.name}</li>)}
+//   </ul>}
