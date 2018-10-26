@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import swal from 'sweetalert2'
+// import swal from 'sweetalert2'
 
 import { withStyles } from '@material-ui/core/styles';
 import 'typeface-roboto';
@@ -38,49 +38,17 @@ class MyRecipes extends Component {
     }
   }
 
-  // Get all recipes from MLCB
-  getRecipesFromMLCB = () => {
-    axios({
-      method: 'GET',
-      url: '/api/mlcb'
-    }).then(response => {
-      this.setState({
-        recipes: response.data.recipes,
-      })
-    }).catch(error => {
-      console.log('ERROR:', error);
-      alert('Error in getting recipes from MLCB');
-    })
-  }
 
   // Post ids to table
   handleAddClick = (recipe) => () => {
-    axios({
-      method: 'POST',
-      url: '/api/meal',
-      data: {
-        user_id: this.props.user.id,
-        recipe_id: recipe.id,
-      }
-    }).then(response => {
-      console.log('client side response from post:', response);
-      // Alert on successful add
-      swal({
-        position: 'top-end',
-        type: 'success',
-        title: 'Success!',
-        showConfirmButton: false,
-        timer: 1000
-      })
-    }).catch(error => {
-      console.log('error in adding recipe:', error);
-      alert('error in adding recipe id:');
-    })
+    // console.log('Recipe clicked:', recipe)
+    this.props.dispatch({ type: 'ADD_MEAL', payload: {user_id: this.props.reduxState.user.id,recipe_id: recipe.id}})
 
   }
   // Get all recipes on page load
   componentDidMount() {
-    this.getRecipesFromMLCB();
+    // Get all recipes from MLCB
+    this.props.dispatch({type: 'FETCH_RECIPES'})
   }
 
   // Render
@@ -88,9 +56,10 @@ class MyRecipes extends Component {
     const { classes } = this.props;
     return (
       <div>
+        {/* <pre>{JSON.stringify(this.props.reduxState.mealReducer, null, 2)}</pre> */}
         <h2>My Recipes</h2>
         <Grid container spacing={24}>
-          {this.state.recipes.map(recipe => {
+          {this.props.reduxState.mealReducer.map(recipe => {
             return <Card className={classes.card} key={recipe.id}>
               <CardMedia
                 className={classes.media}
@@ -100,14 +69,7 @@ class MyRecipes extends Component {
               <CardContent>
                 <div>{recipe.title}</div>
                 <div>{recipe.description}</div>
-                {/* TEST GET INGREDIENTS */}
-                {/* <div>
-                  <ul>
-                    {recipe.ingredients && recipe.ingredients.map(ingredient => (
-                      <li>{ingredient.name} - {ingredient.measure}</li>
-                    ))}
-                  </ul>
-                </div> */}
+
               </CardContent>
               <CardActions>
                 <Button
@@ -128,9 +90,18 @@ class MyRecipes extends Component {
 } // END class component
 
 const mapStateToProps = (reduxState) => {
-  return reduxState;
+  return {reduxState};
 }
 
 const styledRecipeList = withStyles(styles)(MyRecipes);
 
 export default connect(mapStateToProps)(styledRecipeList);
+
+// TEST GET INGREDIENTS
+// <div>
+//   <ul>
+//     {recipe.ingredients && recipe.ingredients.map(ingredient => (
+//       <li>{ingredient.name} - {ingredient.measure}</li>
+//     ))}
+//   </ul>
+// </div>
