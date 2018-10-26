@@ -38,20 +38,6 @@ class MyRecipes extends Component {
     }
   }
 
-  // Get all recipes from MLCB
-  getRecipesFromMLCB = () => {
-    axios({
-      method: 'GET',
-      url: '/api/mlcb'
-    }).then(response => {
-      this.setState({
-        recipes: response.data.recipes,
-      })
-    }).catch(error => {
-      console.log('ERROR:', error);
-      alert('Error in getting recipes from MLCB');
-    })
-  }
 
   // Post ids to table
   handleAddClick = (recipe) => () => {
@@ -80,7 +66,8 @@ class MyRecipes extends Component {
   }
   // Get all recipes on page load
   componentDidMount() {
-    this.getRecipesFromMLCB();
+    // Get all recipes from MLCB
+    this.props.dispatch({type: 'FETCH_RECIPES'})
   }
 
   // Render
@@ -88,9 +75,10 @@ class MyRecipes extends Component {
     const { classes } = this.props;
     return (
       <div>
+        {/* <pre>{JSON.stringify(this.props.reduxState.mealReducer, null, 2)}</pre> */}
         <h2>My Recipes</h2>
         <Grid container spacing={24}>
-          {this.state.recipes.map(recipe => {
+          {this.props.reduxState.mealReducer.map(recipe => {
             return <Card className={classes.card} key={recipe.id}>
               <CardMedia
                 className={classes.media}
@@ -100,14 +88,7 @@ class MyRecipes extends Component {
               <CardContent>
                 <div>{recipe.title}</div>
                 <div>{recipe.description}</div>
-                {/* TEST GET INGREDIENTS */}
-                {/* <div>
-                  <ul>
-                    {recipe.ingredients && recipe.ingredients.map(ingredient => (
-                      <li>{ingredient.name} - {ingredient.measure}</li>
-                    ))}
-                  </ul>
-                </div> */}
+
               </CardContent>
               <CardActions>
                 <Button
@@ -128,9 +109,18 @@ class MyRecipes extends Component {
 } // END class component
 
 const mapStateToProps = (reduxState) => {
-  return reduxState;
+  return {reduxState};
 }
 
 const styledRecipeList = withStyles(styles)(MyRecipes);
 
 export default connect(mapStateToProps)(styledRecipeList);
+
+// TEST GET INGREDIENTS
+// <div>
+//   <ul>
+//     {recipe.ingredients && recipe.ingredients.map(ingredient => (
+//       <li>{ingredient.name} - {ingredient.measure}</li>
+//     ))}
+//   </ul>
+// </div>
