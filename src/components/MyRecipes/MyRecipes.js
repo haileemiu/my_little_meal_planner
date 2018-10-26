@@ -97,11 +97,3 @@ const styledRecipeList = withStyles(styles)(MyRecipes);
 
 export default connect(mapStateToProps)(styledRecipeList);
 
-// TEST GET INGREDIENTS
-// <div>
-//   <ul>
-//     {recipe.ingredients && recipe.ingredients.map(ingredient => (
-//       <li>{ingredient.name} - {ingredient.measure}</li>
-//     ))}
-//   </ul>
-// </div>
