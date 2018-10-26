@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import swal from 'sweetalert2'
+
 import { withStyles } from '@material-ui/core/styles';
 import 'typeface-roboto';
 import {
@@ -43,7 +45,6 @@ class MyRecipes extends Component {
       url: '/api/mlcb'
     }).then(response => {
       this.setState({
-        // recipes: response.data.recipes,
         recipes: response.data.recipes,
       })
     }).catch(error => {
@@ -63,6 +64,14 @@ class MyRecipes extends Component {
       }
     }).then(response => {
       console.log('client side response from post:', response);
+      // Alert on successful add
+      swal({
+        position: 'top-end',
+        type: 'success',
+        title: 'Success!',
+        showConfirmButton: false,
+        timer: 1000
+      })
     }).catch(error => {
       console.log('error in adding recipe:', error);
       alert('error in adding recipe id:');

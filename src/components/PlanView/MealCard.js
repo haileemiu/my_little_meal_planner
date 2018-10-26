@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import swal from 'sweetalert2';
+
 import { withStyles } from '@material-ui/core/styles';
 import 'typeface-roboto';
 import {
@@ -101,7 +103,15 @@ class MealCard extends Component {
       url: `/api/meal/${meal_id}`,
       data: { newDate: this.state.startDate }
     }).then(response => {
-      console.log('Response from submitDate:', response)
+      console.log('Response from submitDate:', response);
+      // Alert on successful add
+      swal({
+        position: 'top-end',
+        type: 'success',
+        title: 'Added',
+        showConfirmButton: false,
+        timer: 1000
+      })
       // Refresh on button click
       window.location.reload();
     }).catch(error => {
@@ -115,9 +125,25 @@ class MealCard extends Component {
       method: 'DELETE',
       url: `/api/meal/delete/${meal_id}`
     }).then(() => {
-      alert('That meal has been removed from My Meals. But it is still available in My Recipes.');
-      // Refresh on button click
-      window.location.reload();
+      swal({
+        title: 'Are you sure?',
+        text: 'This meal will removed from \"My Meals\". But it will still be available in \"My Recipes.\"',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+      }).then((result) => {
+        if (result.value) {
+          swal(
+            'Removed',
+            'The meal as been removed.',
+            'success'
+          )
+          // Refresh on button click
+          window.location.reload();
+        }
+      })
     }).catch(error => {
       console.log('Error in deleting:', error);
     })
