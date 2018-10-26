@@ -5,7 +5,7 @@ import { func } from 'prop-types';
 function* fetchRecipes() {
   try {
     const recipes = yield call(axios.get, '/api/mlcb');
-    yield put({ type: 'GET_FETCH_RECIPES', payload: recipes });
+    yield put({ type: 'GET_RECIPES', payload: recipes });
   } catch (error) {
     console.log(error => ('ERROR in fetchRecipes:', error));
   }
@@ -15,7 +15,7 @@ function* addMeal(action) {
   console.log('Action.payload in addMeal:',action.payload);
   try {
     yield call(axios.post, `/api/meal`, action.payload);
-    
+  
   } catch (error) {
     console.log(error => ('ERROR in addMeal:', error))
   }
@@ -37,7 +37,6 @@ function* removeMeal(action){
     console.log(error => ('ERROR in removeMeal:', error));
   }
 }
-
 
 
 function* mealSaga() {

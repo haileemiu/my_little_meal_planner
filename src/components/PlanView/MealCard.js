@@ -111,6 +111,7 @@ class MealCard extends Component {
   componentDidMount() {
     this.getAvailableMeals();
   }
+  
 
   // Render
   render() {

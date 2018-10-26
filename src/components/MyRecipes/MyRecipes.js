@@ -43,27 +43,6 @@ class MyRecipes extends Component {
   handleAddClick = (recipe) => () => {
     // console.log('Recipe clicked:', recipe)
     this.props.dispatch({ type: 'ADD_MEAL', payload: {user_id: this.props.reduxState.user.id,recipe_id: recipe.id}})
-    // axios({
-    //   method: 'POST',
-    //   url: '/api/meal',
-    //   // data: {
-    //   //   user_id: this.props.user.id,
-    //   //   recipe_id: recipe.id,
-    //   // }
-    // }).then(response => {
-    //   console.log('client side response from post:', response);
-    //   // Alert on successful add
-    //   // swal({
-    //   //   position: 'top-end',
-    //   //   type: 'success',
-    //   //   title: 'Success!',
-    //   //   showConfirmButton: false,
-    //   //   timer: 1000
-    //   // })
-    // }).catch(error => {
-    //   console.log('error in adding recipe:', error);
-    //   alert('error in adding recipe id:');
-    // })
 
   }
   // Get all recipes on page load
