@@ -3,7 +3,7 @@ const axios = require('axios');
 const router = express.Router();
 const pool = require('../modules/pool');
 
-// Add a recipe to the user's list
+// Add a meal to the user's list
 router.post('/', (req, res) => {
   query = `INSERT INTO "planned_meals" ("recipe_id", "user_id") VALUES ($1, $2);`;
   pool.query(query, [req.body.recipe_id, req.body.user_id])
