@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import { withStyles } from '@material-ui/core/styles';
 import 'typeface-roboto';
+import AddIcon from '@material-ui/icons/Add';
 import {
   Button,
   Card,
@@ -12,7 +13,7 @@ import {
   CardContent,
   CardMedia,
   Grid,
-
+  Typography,
 } from '@material-ui/core';
 
 
@@ -22,6 +23,9 @@ const styles = theme => ({
   },
   card: {
     maxWidth: 345,
+  },
+  extendedIcon: {
+    marginRight: theme.spacing.unit,
   },
   media: {
     height: 140,
@@ -67,17 +71,21 @@ class MyRecipes extends Component {
                 title="Placeholder image"
               />
               <CardContent>
+              <Typography variant="h5">
                 <div>{recipe.title}</div>
+                </Typography>
+                <Typography variant="caption">
                 <div>{recipe.description}</div>
-
+                </Typography>
               </CardContent>
               <CardActions>
                 <Button
-                  variant="contained"
+                  variant="fab"
                   color="primary"
+                  aria-label="Add"
                   className={classes.button}
                   onClick={this.handleAddClick(recipe)}>
-                  Add
+                  <AddIcon />
                 </Button>
               </CardActions>
             </Card>
