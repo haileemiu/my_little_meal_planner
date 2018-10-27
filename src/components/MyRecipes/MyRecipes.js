@@ -98,7 +98,7 @@ class MyRecipes extends Component {
         {/* <pre>{JSON.stringify(this.props.reduxState.mealReducer, null, 2)}</pre> */}
         <h2>My Recipes</h2>
         <Grid container spacing={24}>
-          {this.props.reduxState.mealReducer.map(this.renderRecipeCard)}
+          {this.props.reduxState.mealReducer.recipes.map(this.renderRecipeCard)}
         </Grid>
       </div>
     );

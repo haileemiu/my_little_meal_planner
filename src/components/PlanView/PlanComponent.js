@@ -35,10 +35,10 @@ class Plan extends Component {
 
   // Get all the meals that have a date assigned
   getPlannedMealsByDate = async () => {
-    // const response = await axios({ method: 'GET', url: '/api/meal/planned' })
+    const response = await axios({ method: 'GET', url: '/api/meal/planned' })
     this.props.dispatch({ type: 'GET_MEALS_REQUEST' })
 
-    // this.setState({ plannedMeals: response.data });
+    this.setState({ plannedMeals: response.data });
   }
 
   renderIngredient = (mealId) => (ingredient) => (
@@ -81,7 +81,7 @@ class Plan extends Component {
           </TableBody>
         </Table>
 
-        <pre>{JSON.stringify(this.props.reduxState.mealReducer.data, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(this.props.reduxState, null, 2)}</pre> */}
       </div>
     );
   }
