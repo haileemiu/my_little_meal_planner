@@ -104,17 +104,17 @@ class Plan extends Component {
           </TableHead>
 
           <TableBody>
-            {this.state.plannedMeals.map(meal => {
+            {this.state.plannedMeals.map((meal) => {
               
               return <TableRow key={meal.id}>
                 <TableCell><Typography variant="subtitle2">{meal.planned_day}</Typography></TableCell>
                 
                 <TableCell><Typography variant="subtitle1">{meal.title}</Typography></TableCell>
                 <TableCell>
-                  <Typography variant="body2">
-                  <ul key={meal.id}>
+                  <Typography variant="body2" component="div">
+                  <ul >
                     {meal.ingredients.map(ingredient => (
-                      <li>{ingredient.measure} - {ingredient.name}</li>
+                      <li key={ingredient.name}>{ingredient.measure} - {ingredient.name}</li>
                     ))}
                   </ul>
                   </Typography>
