@@ -78,7 +78,8 @@ class Meals extends Component {
 
   // update date
   submitDate = (meal_id) => () => {
-    this.props.dispatch({ type: 'ADD_DATE', payload: { newDate: this.state.startDate, meal_id } });
+    console.log(this.state.startDate);
+    this.props.dispatch({ type: 'ADD_DATE', payload: { newDate: this.state.startDate.toISOString(), meal_id } });
 
     // Alert success
     swal({

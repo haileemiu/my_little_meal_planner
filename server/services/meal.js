@@ -23,7 +23,7 @@ const updateDate = async (newDate, id) => {
 };
 
 const getAssignedPlannedMeals = async (userId) => {
-  const query = `SELECT id, user_id, recipe_id, TO_CHAR("planned_day", 'MM/DD/YY') as planned_day FROM "planned_meals" 
+  const query = `SELECT 'id', 'user_id', 'recipe_id', 'planned_day' FROM "planned_meals" 
   WHERE "user_id"=$1 
   AND "planned_day" IS NOT NULL
   ORDER BY "planned_day";`;
