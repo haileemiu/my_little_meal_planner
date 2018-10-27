@@ -40,7 +40,7 @@ class Plan extends Component {
 
   renderRow = (meal) => (
     <TableRow key={meal.id}>
-      <TableCell><Typography variant="subtitle2">{moment(meal.planned_day).format('MMM Do')}</Typography></TableCell>
+      <TableCell><Typography variant="subtitle2">{moment(meal.planned_day).format('dddd MMM Do')}</Typography></TableCell>
 
       <TableCell><Typography variant="subtitle1">{meal.recipe.title}</Typography></TableCell>
       <TableCell>
