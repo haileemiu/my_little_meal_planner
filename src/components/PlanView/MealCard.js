@@ -17,6 +17,7 @@ import {
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
+import swal from 'sweetalert2';
 
 // Styles for material UI
 const styles = theme => ({
@@ -100,12 +101,39 @@ class MealCard extends Component {
   
   // update date
   submitDate = (meal_id) => () => {
-    this.props.dispatch({ type: 'ADD_DATE', payload: {newDate: this.state.startDate, meal_id: meal_id}})
+    this.props.dispatch({ type: 'ADD_DATE', payload: {newDate: this.state.startDate, meal_id: meal_id}});
+
+    // Alert success
+    swal({
+      position: 'top-end',
+      type: 'success', 
+      title: 'Date set',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
   // Remove meal from planned meals db table
   removeMeal = (meal_id) => () => {
-   this.props.dispatch({ type: 'REMOVE_MEAL', payload: {meal_id: meal_id}})
+   this.props.dispatch({ type: 'REMOVE_MEAL', payload: {meal_id: meal_id}});
+
+   // Alert successfully removed
+   swal({
+    type: 'warning',
+    title: 'Do you want to remove the meal from your current Meal Plan?', 
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cnacelButtonColro: '#d33',
+    confirmButtonTest: 'Yes'
+  }).then((result) => {
+    if (result.value) {
+      swal(
+        'Removed', 
+        'The meal as been removed from your Meal Plan',
+        'success'
+      )
+    }
+  })
   }
 
   // On Page Load

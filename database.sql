@@ -5,8 +5,8 @@ CREATE TABLE person (
 );
 
 CREATE TABLE "planned_meals" (
-	"id" SERIAL PRIMARY KEY,
-	"user_id" INT UNIQUE NOT NULL,
-	"recipe_id" INT NOT NULL,
-	"planned_day" DATE
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INT NOT NULL,
+    "recipe_id" INT NOT NULL,
+    "planned_day" DATE
 );
