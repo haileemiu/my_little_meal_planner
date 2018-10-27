@@ -15,6 +15,7 @@ import {
   Grid,
   Typography,
 } from '@material-ui/core';
+import swal from 'sweetalert2';
 
 
 const styles = theme => ({
@@ -48,6 +49,14 @@ class MyRecipes extends Component {
     // console.log('Recipe clicked:', recipe)
     this.props.dispatch({ type: 'ADD_MEAL', payload: {user_id: this.props.reduxState.user.id,recipe_id: recipe.id}})
 
+    // Alert successfully added
+    swal({
+      position: 'top-end',
+      type: 'success', 
+      title: 'Added to Meal Plan',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
   // Get all recipes on page load
   componentDidMount() {
