@@ -40,20 +40,20 @@ function* removeMeal(action){
   }
 }
 
-// function* getMeals() {
-//   try{
-//     const meals = yield call(axios.get, '/api/meal');
-//     console.log('meals in getMeals:', meals);
-//     yield put({type: 'GET_MEALS_RESPONSE', payload: meals});
-//   } catch (error) {
-//     console.log('ERROR in getMeals:', error);
-//   }
-// }
+function* getMeals() {
+  try{
+    const response = yield call(axios.get, '/api/meal');
+    console.log('meals in getMeals:', response.data);
+    yield put({type: 'GET_MEALS_RESPONSE', payload: response.data});
+  } catch (error) {
+    console.log('ERROR in getMeals:', error);
+  }
+}
 
 
 function* mealSaga() {
   yield takeLatest('GET_RECIPES_REQUEST', getRecipes);
-  // yield takeLatest('GET_MEALS_REQUEST', getMeals);
+  yield takeLatest('GET_MEALS_REQUEST', getMeals);
   yield takeLatest('ADD_MEAL', addMeal);
   yield takeLatest('ADD_DATE', addDate);
   yield takeLatest('REMOVE_MEAL', removeMeal);
