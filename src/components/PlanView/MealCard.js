@@ -69,7 +69,7 @@ class MealCard extends Component {
         // Create an array of recipes
         let plannedMeals = [];
         for (let meal of responses) {
-          plannedMeals.push(meal.data.data.recipe);
+          plannedMeals.push(meal.data.recipe);
         }
         // console.log('plannedMeals:', plannedMeals);
 

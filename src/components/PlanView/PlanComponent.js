@@ -38,7 +38,7 @@ class Plan extends Component {
       method: 'GET',
       url: `/api/meal/planned`,
     }).then(response => {
-      console.log('Response from db (by date):', response.data);
+      console.log('Response from db (by date):', response);
 
       // exact same as meal card
       let meals = response.data.map(meal => ({ id: meal.id, recipe_id: meal.recipe_id, planned_day: meal.planned_day }));
@@ -55,13 +55,13 @@ class Plan extends Component {
 
       // Send multiple axios get requests for all the recipe data
       Promise.all(promiseArray).then(responses => {
-        // console.log('Response from promise.all:', responses)
+        console.log('Response from promise.all:', responses)
         // Create an array of recipes
         let plannedMeals = [];
         for (let meal of responses) {
-          plannedMeals.push(meal.data.data.recipe);
+          plannedMeals.push(meal.data.recipe);
         }
-        // console.log('plannedMeals:', plannedMeals);
+        console.log('plannedMeals:', plannedMeals);
 
         // Keep the recipe ids and meal ids
         for (let i = 0; i < plannedMeals.length; i++) {
@@ -76,7 +76,7 @@ class Plan extends Component {
         })
         console.log('this.state.plannedMeals:', this.state.plannedMeals);
       });
-      // ^^^
+
 
     }).catch(error => {
       console.log('Error in getPlannedMealsByDate:', error);
@@ -124,7 +124,7 @@ class Plan extends Component {
           </TableBody>
         </Table>
 
-        <pre>{JSON.stringify(this.state.plannedMeals, null, 2)}</pre>
+        {/* <pre>{JSON.stringify(this.state.plannedMeals, null, 2)}</pre> */}
       </div>
     );
   }
@@ -133,17 +133,3 @@ class Plan extends Component {
 const styledTable = withStyles(styles)(Plan);
 
 export default connect()(styledTable);
-
-// TEST GET INGREDIENTS
-// <div>
-//   <ul>
-//     {recipe.ingredients && recipe.ingredients.map(ingredient => (
-//       <li>{ingredient.name} - {ingredient.measure}</li>
-//     ))}
-//   </ul>
-// </div>
-
-// {meal.id.map(ingredient => {
-//   return <ul>
-//   <li>{ingredient.name}</li>)}
-//   </ul>}
