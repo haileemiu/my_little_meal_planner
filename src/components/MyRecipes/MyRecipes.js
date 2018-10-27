@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-// import swal from 'sweetalert2'
+import swal from 'sweetalert2';
 
 import { withStyles } from '@material-ui/core/styles';
 import 'typeface-roboto';
@@ -15,7 +15,7 @@ import {
   Grid,
   Typography,
 } from '@material-ui/core';
-import swal from 'sweetalert2';
+;
 
 
 const styles = theme => ({

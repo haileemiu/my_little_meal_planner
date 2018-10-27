@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-// import swal from 'sweetalert2';
+import swal from 'sweetalert2';
 
 import { withStyles } from '@material-ui/core/styles';
 import 'typeface-roboto';
@@ -17,7 +17,7 @@ import {
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
-import swal from 'sweetalert2';
+
 
 // Styles for material UI
 const styles = theme => ({
@@ -123,8 +123,8 @@ class MealCard extends Component {
     title: 'Do you want to remove the meal from your current Meal Plan?', 
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
-    cnacelButtonColro: '#d33',
-    confirmButtonTest: 'Yes'
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes'
   }).then((result) => {
     if (result.value) {
       swal(
