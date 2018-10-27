@@ -11,6 +11,7 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  Typography,
 } from '@material-ui/core';
 // Imports for dates
 import DatePicker from 'react-datepicker';
@@ -130,7 +131,9 @@ class MealCard extends Component {
             />
 
             <CardContent>
+              <Typography variant="h4">
               <div>{meal.title}</div>
+              </Typography>
             </CardContent>
 
             <CardActions>

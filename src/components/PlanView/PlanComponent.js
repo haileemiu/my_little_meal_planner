@@ -8,6 +8,7 @@ import {
   TableCell,
   TableHead,
   TableRow,
+  Typography,
 } from '@material-ui/core';
 
 const styles = theme => ({
@@ -104,16 +105,19 @@ class Plan extends Component {
 
           <TableBody>
             {this.state.plannedMeals.map(meal => {
-              console.log('TEST:', meal);
+              
               return <TableRow key={meal.id}>
-                <TableCell>{meal.planned_day}</TableCell>
-                <TableCell>{meal.title}</TableCell>
+                <TableCell><Typography variant="subtitle2">{meal.planned_day}</Typography></TableCell>
+                
+                <TableCell><Typography variant="subtitle1">{meal.title}</Typography></TableCell>
                 <TableCell>
+                  <Typography variant="body2">
                   <ul key={meal.id}>
                     {meal.ingredients.map(ingredient => (
                       <li>{ingredient.measure} - {ingredient.name}</li>
                     ))}
                   </ul>
+                  </Typography>
                 </TableCell>
               </TableRow>
             })}
