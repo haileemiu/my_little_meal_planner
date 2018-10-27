@@ -1,35 +1,29 @@
 const express = require('express');
-const axios = require('axios');
 const router = express.Router();
 
+const mlcbService = require('../services/mlcb');
+
 // Get all the recipes back for "My Recipes View"
-router.get('/', (req, res) => {
-    axios({
-        method: 'GET',
-        url: 'https://mlcb.tyvoid.net/api/v1/recipes'
-    }).then(response => {
-        //console.log('response.data.data:', response.data.data)
-        // Keep the meta section, but not doing .recipes
-        res.send(response.data);
-    }).catch(error => {
-        console.log('ERROR in getting all recipes:', error);
-    });
+router.get('/', async (req, res) => {
+  try {
+    const list = await mlcbService.recipeList();
+
+    res.send(list);
+  } catch (e) {
+    res.sendStatus(500);
+  }
 })
 
 // Get specific recipe for user 
 // Used twice
-router.get('/:id', (req, res) => {
-    // console.log('REQUEST in mlcb router:', req.params);
-    axios({
-        method: 'GET',
-        url: `https://mlcb.tyvoid.net/api/v1/recipes/${req.params.id}`
-    }).then(response => {
-        // console.log('response.data.data:', response.data.data)
-        // Keep the meta section, but not doing .recipes
-        res.send(response.data);
-    }).catch(error => {
-        console.log('ERROR in getting specific recipe:', error);
-    });
+router.get('/:id', async (req, res) => {
+  try {
+    const recipe = await mlcbService.recipeDetail(req.params.id);
+
+    res.send(recipe);
+  } catch (e) {
+    res.sendStatus(500);
+  }
 })
 
 module.exports = router;

@@ -23,73 +23,45 @@ const styles = theme => ({
 });
 
 class Plan extends Component {
-
-  constructor(props) {
-
-    super(props);
-    this.state = {
-      plannedMeals: [],
-      // meals: [],
-    }
+  state = {
+    plannedMeals: []
   }
-  // Get all the meals that have a date assigned
-  getPlannedMealsByDate = () => {
-    axios({
-      method: 'GET',
-      url: `/api/meal/planned`,
-    }).then(response => {
-      // console.log('Response from db (by date):', response);
 
-      // exact same as meal card
-      let meals = response.data.map(meal => ({ id: meal.id, recipe_id: meal.recipe_id, planned_day: meal.planned_day }));
-      this.setState({
-        meals: meals
-      })
-      // console.log('this.state.meals', this.state.meals);
-
-      // Create an array promises
-      let promiseArray = [];
-      for (let promise of meals) {
-        promiseArray.push(axios.get(`/api/mlcb/${promise.recipe_id}`))
-      }
-
-      // Send multiple axios get requests for all the recipe data
-      Promise.all(promiseArray).then(responses => {
-        // console.log('Response from promise.all:', responses)
-        // Create an array of recipes
-        let plannedMeals = [];
-        for (let meal of responses) {
-          plannedMeals.push(meal.data.recipe);
-        }
-        // console.log('plannedMeals:', plannedMeals);
-
-        // Keep the recipe ids and meal ids
-        for (let i = 0; i < plannedMeals.length; i++) {
-          plannedMeals[i] = {
-            ...plannedMeals[i],
-            meal_id: meals[i].id,
-            planned_day: meals[i].planned_day
-          }
-        }
-        this.setState({
-          plannedMeals: plannedMeals
-        })
-        // console.log('this.state.plannedMeals:', this.state.plannedMeals);
-      });
-
-
-    }).catch(error => {
-      console.log('Error in getPlannedMealsByDate:', error);
-      alert('Error in getPlannedMealsByDate');
-    })
-  }
   // Run on page load
   componentDidMount() {
     this.getPlannedMealsByDate();
   }
 
+  // Get all the meals that have a date assigned
+  getPlannedMealsByDate = async () => {
+    const response = await axios({ method: 'GET', url: '/api/meal/planned' })
+    // this.props.dispatch({ type: 'GET_MEALS_REQUEST' })
+
+    this.setState({ plannedMeals: response.data });
+  }
+
+  renderIngredient = (mealId) => (ingredient) => (
+    <li key={`${mealId}-${ingredient.name}`}>{ingredient.measure} - {ingredient.name}</li>
+  )
+
+  renderRow = (meal) => (
+    <TableRow key={meal.id}>
+      <TableCell><Typography variant="subtitle2">{meal.planned_day}</Typography></TableCell>
+
+      <TableCell><Typography variant="subtitle1">{meal.recipe.title}</Typography></TableCell>
+      <TableCell>
+        <Typography variant="body2" component="div">
+          <ul >
+            {meal.recipe.ingredients.map(this.renderIngredient(meal.id))}
+          </ul>
+        </Typography>
+      </TableCell>
+    </TableRow>
+  )
+
   render() {
     const { classes } = this.props;
+
     return (
       <div>
         <h3>My Plan</h3>
@@ -104,32 +76,20 @@ class Plan extends Component {
           </TableHead>
 
           <TableBody>
-            {this.state.plannedMeals.map((meal) => {
-              
-              return <TableRow key={meal.id}>
-                <TableCell><Typography variant="subtitle2">{meal.planned_day}</Typography></TableCell>
-                
-                <TableCell><Typography variant="subtitle1">{meal.title}</Typography></TableCell>
-                <TableCell>
-                  <Typography variant="body2" component="div">
-                  <ul >
-                    {meal.ingredients.map(ingredient => (
-                      <li key={ingredient.name}>{ingredient.measure} - {ingredient.name}</li>
-                    ))}
-                  </ul>
-                  </Typography>
-                </TableCell>
-              </TableRow>
-            })}
+            {this.state.plannedMeals.map(this.renderRow)}
           </TableBody>
         </Table>
 
-        {/* <pre>{JSON.stringify(this.state.plannedMeals, null, 2)}</pre> */}
+        {/* <pre>{JSON.stringify(this.props.reduxState.mealReducer.data, null, 2)}</pre> */}
       </div>
     );
   }
 }
 
+const mapStateToProps = (reduxState) => {
+  return { reduxState };
+}
+
 const styledTable = withStyles(styles)(Plan);
 
-export default connect()(styledTable);
+export default connect(mapStateToProps)(styledTable);
