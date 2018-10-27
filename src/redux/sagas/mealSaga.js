@@ -42,7 +42,7 @@ function* removeMeal(action){
 
 function* getMeals() {
   try{
-    const response = yield call(axios.get, '/api/meal');
+    const response = yield call(axios.get, '/api/meal/planned');
     console.log('meals in getMeals:', response.data);
     yield put({type: 'GET_MEALS_RESPONSE', payload: response.data});
   } catch (error) {
