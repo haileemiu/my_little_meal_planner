@@ -38,14 +38,14 @@ class Plan extends Component {
       method: 'GET',
       url: `/api/meal/planned`,
     }).then(response => {
-      console.log('Response from db (by date):', response);
+      // console.log('Response from db (by date):', response);
 
       // exact same as meal card
       let meals = response.data.map(meal => ({ id: meal.id, recipe_id: meal.recipe_id, planned_day: meal.planned_day }));
       this.setState({
         meals: meals
       })
-      console.log('this.state.meals', this.state.meals);
+      // console.log('this.state.meals', this.state.meals);
 
       // Create an array promises
       let promiseArray = [];
@@ -55,13 +55,13 @@ class Plan extends Component {
 
       // Send multiple axios get requests for all the recipe data
       Promise.all(promiseArray).then(responses => {
-        console.log('Response from promise.all:', responses)
+        // console.log('Response from promise.all:', responses)
         // Create an array of recipes
         let plannedMeals = [];
         for (let meal of responses) {
           plannedMeals.push(meal.data.recipe);
         }
-        console.log('plannedMeals:', plannedMeals);
+        // console.log('plannedMeals:', plannedMeals);
 
         // Keep the recipe ids and meal ids
         for (let i = 0; i < plannedMeals.length; i++) {
@@ -74,7 +74,7 @@ class Plan extends Component {
         this.setState({
           plannedMeals: plannedMeals
         })
-        console.log('this.state.plannedMeals:', this.state.plannedMeals);
+        // console.log('this.state.plannedMeals:', this.state.plannedMeals);
       });
 
 

@@ -51,7 +51,7 @@ router.get('/planned', (req, res) => {
   ORDER BY "planned_day";`;
   pool.query(query, [req.user.id])
     .then(results => {
-      console.log('Results from planned meals (with date):', results);
+      // console.log('Results from planned meals (with date):', results);
       res.send(results.rows)
     }).catch(error => {
       console.log('Error in get planned meals router:', error);
