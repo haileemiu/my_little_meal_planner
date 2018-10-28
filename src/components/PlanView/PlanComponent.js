@@ -35,8 +35,7 @@ class Plan extends Component {
   // Get all the meals that have a date assigned
   getPlannedMealsByDate = async () => {
     try {
-      const mealsResponse = await this.props.dispatch({ type: 'GET_MEALS_REQUEST' });
-      console.log('mealsResponse:', mealsResponse);
+      await this.props.dispatch({ type: 'GET_MEALS_REQUEST' });
       // this.setState({ plannedMeals: mealsResponse.data});
     } catch (err) {
       console.log('ERROR in getPlannedMealsByDate:', err);
