@@ -3,6 +3,7 @@ import axios from 'axios';
 import { func } from 'prop-types';
 import { compose } from 'redux';
 
+// Get all recipes on recipe view
 function* getRecipes() {
   try {
     const recipes = yield call(axios.get, '/api/mlcb');
@@ -12,6 +13,7 @@ function* getRecipes() {
   }
 }
 
+// Add meal from recipe view
 function* addMeal(action) {
   console.log('Action.payload in addMeal:',action.payload);
   try {
@@ -22,24 +24,29 @@ function* addMeal(action) {
   }
 }
 
+// Update to have a date
 function* addDate(action){
   console.log('addDate action:',action);
   try {
     yield call(axios.put, `/api/meal/${action.payload.meal_id}`, action.payload);
-    
+    yield put({type: 'GET_MEALS_REQUEST'});
   } catch (error) {
     console.log('ERROR in addDate:', error);
   }
 }
 
+// Delete meal from db
 function* removeMeal(action){
   try {
     yield call(axios.delete, `/api/meal/delete/${action.payload.meal_id}`, action.payload);
+    yield put({type: 'REMOVE_MEAL_RESPONSE', payload: action.payload.meal_id});
+ 
   } catch (error) {
     console.log('ERROR in removeMeal:', error);
   }
 }
 
+// Get meals that have a planned day assigned 
 function* getMeals() {
   try{
     const response = yield call(axios.get, '/api/meal/planned');
