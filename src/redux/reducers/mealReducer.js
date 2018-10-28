@@ -11,6 +11,8 @@ const mealReducer = (state = initialState, action) => {
     case 'GET_MEALS_RESPONSE':
       console.log('action.payload in get meals response meal reducer:', action.payload);
       return { ...state, meals: action.payload };
+    case 'REMOVE_MEAL_RESPONSE':
+      return { ...state, meals: state.meals.filter(m => m.id !== action.payload) }
     default:
       return state;
   }

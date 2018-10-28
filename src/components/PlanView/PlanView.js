@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Meals from './MealsComponent';
 import Plan from './PlanComponent';
 
-// Likely change to functional component
 class PlanView extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-      }
-    }
+
 
   render() { 
     return ( 
@@ -20,5 +16,10 @@ class PlanView extends Component {
      );
   }
 }
+
+
+const mapStateToProps = (reduxState) => {
+  return { reduxState };
+}
  
-export default PlanView;
+export default connect(mapStateToProps)(PlanView);

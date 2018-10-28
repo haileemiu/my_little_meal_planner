@@ -24,14 +24,23 @@ const styles = theme => ({
 });
 
 class Plan extends Component {
+  state = {
+    // plannedMeals: []
+  }
   // Run on page load
   componentDidMount() {
     this.getPlannedMealsByDate();
   }
 
   // Get all the meals that have a date assigned
-  getPlannedMealsByDate =  () => {
-    this.props.dispatch({ type: 'GET_MEALS_REQUEST' })
+  getPlannedMealsByDate = async () => {
+    try {
+      const mealsResponse = await this.props.dispatch({ type: 'GET_MEALS_REQUEST' });
+      console.log('mealsResponse:', mealsResponse);
+      // this.setState({ plannedMeals: mealsResponse.data});
+    } catch (err) {
+      console.log('ERROR in getPlannedMealsByDate:', err);
+    }
   }
 
   renderIngredient = (mealId) => (ingredient) => (

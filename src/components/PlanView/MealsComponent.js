@@ -33,6 +33,7 @@ class Meals extends Component {
   // Get the specific meals saved by that user
   getAvailableMeals = async () => {
     try {
+      // mealsResponse is what would come back in the .then
       const mealsResponse = await axios({ method: 'GET', url: '/api/meal' });
 
       this.setState({ plannedMeals: mealsResponse.data });
@@ -89,6 +90,7 @@ class Meals extends Component {
       showConfirmButton: false,
       timer: 1500
     })
+
   }
 
   renderMealCard = ({ recipe, ...meal }) => (
@@ -140,4 +142,8 @@ class Meals extends Component {
   }
 }
 
-export default connect()(Meals);
+const mapStateToProps = (reduxState) => {
+  return { reduxState };
+}
+
+export default connect(mapStateToProps)(Meals);

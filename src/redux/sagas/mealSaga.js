@@ -35,6 +35,7 @@ function* addDate(action){
 function* removeMeal(action){
   try {
     yield call(axios.delete, `/api/meal/delete/${action.payload.meal_id}`, action.payload);
+    yield put({type: 'REMOVE_MEAL_RESPONSE', payload: action.payload.meal_id});
   } catch (error) {
     console.log('ERROR in removeMeal:', error);
   }
