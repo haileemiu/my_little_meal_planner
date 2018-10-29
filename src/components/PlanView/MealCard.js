@@ -30,7 +30,7 @@ const styles = {
 
 class MealCard extends Component {
   state = {
-    startDate: moment(),
+    startDate: '',
     showPicture: true
   }
 
@@ -49,7 +49,7 @@ class MealCard extends Component {
 
   // Toggle between picture and direction
   togglePicture = () => {
-    this.setState(state => ({showPicture: !state.showPicture}))
+    this.setState(state => ({ showPicture: !state.showPicture }))
   }
 
   // Render 
@@ -61,14 +61,14 @@ class MealCard extends Component {
 
         <CardActionArea onClick={this.togglePicture} className={this.state.cardActionArea}>
           {this.state.showPicture ? (<CardMedia
-                                      style={styles.media}
-                                      image={recipe.images && recipe.images.length ? `https://mlcb.tyvoid.net/api/v1/images/${recipe.images[0].id}` : placeholderImage}
-                                      title="Meal Image"
-                                    />) : (<Typography variant="subheading" className="wrapText">
-                                            <ol>
-                                              {recipe.directions.map(direction => <li>{direction.body}</li>)}
-                                            </ol>
-                                          </Typography>)}
+            style={styles.media}
+            image={recipe.images && recipe.images.length ? `https://mlcb.tyvoid.net/api/v1/images/${recipe.images[0].id}` : placeholderImage}
+            title="Meal Image"
+          />) : (<Typography variant="subheading" className="wrapText">
+            <ol>
+              {recipe.directions.map(direction => <li>{direction.body}</li>)}
+            </ol>
+          </Typography>)}
         </CardActionArea>
 
         <CardContent>
@@ -80,18 +80,21 @@ class MealCard extends Component {
           {/* TODO: rerender */}
           {/* Show check mark if the meal has an assigned day */}
           <Typography variant="h4">
-          {meal.planned_day ? <i className="fas fa-check"></i> : null} 
-          </Typography>          
+            {meal.planned_day ? <i className="fas fa-check"></i> : null}
+          </Typography>
 
+          {/* WIP display date */}
+          <Typography variant="subheading">
+            {meal.planned_day ? <div>{moment(meal.planned_day).format('dddd')}</div> : null}
+          </Typography>
         </CardContent>
 
         <CardActions>
           <p>Assign Date</p>
           <DatePicker
-            placeholderText="Click to select a date"
-
             selected={this.state.startDate}
             onChange={this.handleDateChange}
+            placeholderText="Click to select a date"
           />
           <Button
             variant="contained" color="primary"
