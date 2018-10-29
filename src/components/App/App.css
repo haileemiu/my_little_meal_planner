@@ -59,7 +59,6 @@ input {
     transform-origin: right top;
 }
 
-
-.title {
+.wrapText {
     white-space: normal;
 }

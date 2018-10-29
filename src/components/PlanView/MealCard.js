@@ -15,7 +15,7 @@ const styles = {
   card: {
     maxWidth: 400,
     display: 'inline-block',
-    height: 340,
+    minHeight: 340,
     position: 'relative'
   },
   media: {
@@ -64,7 +64,7 @@ class MealCard extends Component {
                                       style={styles.media}
                                       image={recipe.images && recipe.images.length ? `https://mlcb.tyvoid.net/api/v1/images/${recipe.images[0].id}` : placeholderImage}
                                       title="Meal Image"
-                                    />) : (<Typography variant="subheading">
+                                    />) : (<Typography variant="subheading" className="wrapText">
                                             <ol>
                                               {recipe.directions.map(direction => <li>{direction.body}</li>)}
                                             </ol>
@@ -72,7 +72,7 @@ class MealCard extends Component {
         </CardActionArea>
 
         <CardContent>
-          <Typography variant="h5" className="title">
+          <Typography variant="h5" className="wrapText">
             <div>{recipe.title}</div>
           </Typography>
 
