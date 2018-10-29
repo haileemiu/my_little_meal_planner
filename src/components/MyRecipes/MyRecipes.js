@@ -84,7 +84,7 @@ class MyRecipes extends Component {
       <CardActions>
         <Button
           variant="fab"
-          color="primary"
+          color="#b9baa3"
           aria-label="Add"
           className={this.props.classes.button}
           onClick={this.handleAddClick(recipe)}>
