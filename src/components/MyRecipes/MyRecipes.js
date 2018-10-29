@@ -22,7 +22,9 @@ const styles = theme => ({
     margin: theme.spacing.unit,
   },
   card: {
-    maxWidth: 345,
+    height: 400,
+    width: 400,
+    margin: 10
   },
   extendedIcon: {
     marginRight: theme.spacing.unit,
