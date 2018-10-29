@@ -13,7 +13,10 @@ const styles = {
     margin: 10,
   },
   card: {
-    maxWidth: 345,
+    maxWidth: 400,
+    display: 'inline-block',
+    height: 340,
+    position: 'relative'
   },
   media: {
     height: 140,
@@ -69,7 +72,7 @@ class MealCard extends Component {
         </CardActionArea>
 
         <CardContent>
-          <Typography variant="h4">
+          <Typography variant="h5" className="title">
             <div>{recipe.title}</div>
           </Typography>
 

@@ -84,7 +84,7 @@ class Meals extends Component {
 
   render() {
     return (
-      <div>
+      <div className="scrollmenu">
         <h3>My Meals</h3>
         {this.state.plannedMeals.map(meal => <MealCard meal={meal} submitDate={this.submitDate} removeMeal={this.removeMeal}/>)}
         {/* {JSON.stringify(this.props.reduxState.mealReducer.recipes, null, 2)} */}
