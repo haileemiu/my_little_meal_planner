@@ -7,7 +7,7 @@ const addMeal = async (recipeId, userId) => {
 };
 
 const getPlannedMeals = async userId => {
-  const query = `SELECT "id" as "planned_id", "recipe_id", "planned_day" FROM "planned_meals" WHERE "user_id"=$1 ORDER BY "recipe_id";`;
+  const query = `SELECT id as planned_id, recipe_id, planned_day FROM "planned_meals" WHERE "user_id"=$1;`;
 
   const results = await pool.query(query, [userId]);
 
