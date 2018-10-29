@@ -13,9 +13,10 @@ const styles = {
     margin: 10,
   },
   card: {
-    maxWidth: 400,
+    maxWidth: 300,
+    minWidth: 250,
     display: 'inline-block',
-    minHeight: 340,
+    height: 340,
     position: 'relative'
   },
   media: {
@@ -79,29 +80,30 @@ class MealCard extends Component {
           {/* WIP */}
           {/* TODO: rerender */}
           {/* Show check mark if the meal has an assigned day */}
-          <Typography variant="h4">
-            {meal.planned_day ? <i className="fas fa-check"></i> : null}
+          <Typography variant="p">
+            {meal.planned_day ? <i className="fas fa-check"><span> Meal has been planned</span></i> : null}
           </Typography>
 
           {/* WIP display date */}
-          <Typography variant="subheading">
-            {meal.planned_day ? <div>{moment(meal.planned_day).format('dddd')}</div> : null}
-          </Typography>
+          {/* <Typography variant="subheading">
+            {meal.planned_day ? <div>{moment(meal.planned_day).startOf('day').fromNow()}</div> : null}
+          </Typography> */}
         </CardContent>
 
         <CardActions>
-          <p>Assign Date</p>
           <DatePicker
             selected={this.state.startDate}
             onChange={this.handleDateChange}
-            placeholderText="Click to select a date"
+            placeholderText="Click to assign date"
           />
+        </CardActions>
+        <CardActions>
           <Button
             variant="contained" color="primary"
             styles={styles.button}
             onClick={this.handleSubmitDate}
           >
-            Assign
+            Plan
           </Button>
           <Button
             variant="contained"
