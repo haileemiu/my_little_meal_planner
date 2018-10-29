@@ -84,7 +84,7 @@ class Meals extends Component {
 
   render() {
     return (
-      <div className="scrollmenu">
+      <div className="scrollmenu componentBody">
         <h3>My Meals</h3>
         <p>Click the picture to see recipe directions!</p>
         {this.state.plannedMeals.map(meal => <MealCard meal={meal} submitDate={this.submitDate} removeMeal={this.removeMeal}/>)}

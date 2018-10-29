@@ -65,7 +65,7 @@ class Plan extends Component {
     const { classes } = this.props;
 
     return (
-      <div>
+      <div className="componentBody">
         <h3>My Plan</h3>
         <Table className={classes.table}>
           <TableHead>

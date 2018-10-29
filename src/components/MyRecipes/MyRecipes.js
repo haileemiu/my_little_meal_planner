@@ -100,7 +100,7 @@ class MyRecipes extends Component {
   // Render
   render() {
     return (
-      <div>
+      <div className="componentBody">
         {/* <pre>{JSON.stringify(this.props.reduxState.mealReducer.meals, null, 2)}</pre> */}
         <h2>My Recipes</h2>
         <Grid container spacing={24}>

@@ -62,3 +62,7 @@ input {
 .wrapText {
     white-space: normal;
 }
+
+.componentBody {
+    margin: 20px;
+}
