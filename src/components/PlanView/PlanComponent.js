@@ -17,6 +17,7 @@ const styles = theme => ({
     width: '100%',
     marginTop: theme.spacing.unit * 3,
     overflowX: 'auto',
+
   },
   table: {
     minWidth: 700,
@@ -48,9 +49,9 @@ class Plan extends Component {
 
   renderRow = (meal) => (
     <TableRow key={meal.id}>
-      <TableCell><Typography variant="subtitle2">{moment(meal.planned_day).format('dddd MMM Do')}</Typography></TableCell>
+      <TableCell><Typography variant="display1">{moment(meal.planned_day).format('dddd MMM Do')}</Typography></TableCell>
 
-      <TableCell><Typography variant="subtitle1">{meal.recipe.title}</Typography></TableCell>
+      <TableCell><Typography variant="title">{meal.recipe.title}</Typography></TableCell>
       <TableCell>
         <Typography variant="body2" component="div">
           <ul>
