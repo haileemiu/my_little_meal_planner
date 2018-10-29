@@ -15,7 +15,7 @@ function* getRecipes() {
 
 // Add meal from recipe view
 function* addMeal(action) {
-  console.log('Action.payload in addMeal:',action.payload);
+  // console.log('Action.payload in addMeal:',action.payload);
   try {
     yield call(axios.post, `/api/meal`, action.payload);
   
@@ -26,7 +26,7 @@ function* addMeal(action) {
 
 // Update to have a date
 function* addDate(action){
-  console.log('addDate action:',action);
+  // console.log('addDate action:',action);
   try {
     yield call(axios.put, `/api/meal/${action.payload.meal_id}`, action.payload);
     yield put({type: 'GET_MEALS_REQUEST'});
@@ -50,7 +50,7 @@ function* removeMeal(action){
 function* getMeals() {
   try{
     const response = yield call(axios.get, '/api/meal/planned');
-    console.log('meals in getMeals:', response.data);
+    // console.log('meals in getMeals:', response.data);
     yield put({type: 'GET_MEALS_RESPONSE', payload: response.data});
   } catch (error) {
     console.log('ERROR in getMeals:', error);

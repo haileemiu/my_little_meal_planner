@@ -56,7 +56,7 @@ router.put('/:id', async (req, res) => {
 router.get('/planned', async (req, res) => {
   try {
     const meals = await mealService.getAssignedPlannedMeals(req.user.id);
-    console.log('meals:', meals)
+    // console.log('meals:', meals)
     const detailPromises = meals.map(meal => mlcbService.recipeDetail(meal.recipe_id));
 
     const recipeDetails = await Promise.all(detailPromises);
