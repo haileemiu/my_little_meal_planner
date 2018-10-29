@@ -38,8 +38,8 @@ class Plan extends Component {
     try {
       await this.props.dispatch({ type: 'GET_MEALS_REQUEST' });
       // this.setState({ plannedMeals: mealsResponse.data});
-    } catch (err) {
-      console.log('ERROR in getPlannedMealsByDate:', err);
+    } catch (error) {
+      console.log('ERROR in getPlannedMealsByDate:', error);
     }
   }
 

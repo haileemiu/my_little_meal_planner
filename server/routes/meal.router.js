@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
     await mealService.addMeal(req.body.recipe_id, req.body.user_id);
 
     res.sendStatus(201);
-  } catch (e) {
+  } catch (error) {
     res.sendStatus(500);
   }
 });
@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
 
     // Sends the response data
     res.send(response);
-  } catch (e) {
+  } catch (error) {
     res.sendStatus(500);
   }
 });
@@ -47,7 +47,7 @@ router.put('/:id', async (req, res) => {
     await mealService.updateDate(req.body.newDate, req.params.id);
 
     res.sendStatus(204);
-  } catch (e) {
+  } catch (error) {
     res.sendStatus(500);
   }
 })
@@ -67,8 +67,8 @@ router.get('/planned', async (req, res) => {
     }));
 
     res.send(response);
-  } catch (e) {
-    console.log('Error in get /planned:', e)
+  } catch (error) {
+    console.log('Error in get /planned:', error)
     res.sendStatus(500);
   }
 })
@@ -79,7 +79,7 @@ router.delete('/delete/:id', async (req, res) => {
     await mealService.deleteMeal(req.params.id);
 
     res.sendStatus(204);
-  } catch (e) {
+  } catch (error) {
     res.sendStatus(500);
   }
 })

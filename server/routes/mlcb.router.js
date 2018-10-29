@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     const list = await mlcbService.recipeList();
 
     res.send(list);
-  } catch (e) {
+  } catch (error) {
     res.sendStatus(500);
   }
 })
@@ -21,7 +21,7 @@ router.get('/:id', async (req, res) => {
     const recipe = await mlcbService.recipeDetail(req.params.id);
 
     res.send(recipe);
-  } catch (e) {
+  } catch (error) {
     res.sendStatus(500);
   }
 })

@@ -80,7 +80,7 @@ class MealCard extends Component {
           {/* WIP */}
           {/* TODO: rerender */}
           {/* Show check mark if the meal has an assigned day */}
-          <Typography variant="p">
+          <Typography variant="h6">
             {meal.planned_day ? <i className="fas fa-check"><span> Meal has been planned</span></i> : null}
           </Typography>
 

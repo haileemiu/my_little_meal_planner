@@ -35,8 +35,8 @@ class Meals extends Component {
       const mealsResponse = await axios({ method: 'GET', url: '/api/meal' });
 
       this.setState({ plannedMeals: mealsResponse.data });
-    } catch (err) {
-      console.log('Error in getAvaliableMeals:', err)
+    } catch (error) {
+      console.log('Error in getAvaliableMeals:', error)
     }
   }
 
