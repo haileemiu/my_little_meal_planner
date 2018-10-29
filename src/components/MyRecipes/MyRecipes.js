@@ -65,7 +65,7 @@ class MyRecipes extends Component {
     this.props.dispatch({ type: 'GET_RECIPES_REQUEST' })
   }
 
-
+  // Entire recipe card
   renderRecipeCard = (recipe) => (
     <Card className={this.props.classes.card} key={recipe.id}>
       <CardMedia
@@ -80,6 +80,7 @@ class MyRecipes extends Component {
         <Typography variant="caption">
           <div>{recipe.description}</div>
         </Typography>
+
       </CardContent>
       <CardActions>
         <Button
@@ -98,7 +99,7 @@ class MyRecipes extends Component {
   render() {
     return (
       <div>
-        {/* <pre>{JSON.stringify(this.props.reduxState.mealReducer, null, 2)}</pre> */}
+        {/* <pre>{JSON.stringify(this.props.reduxState.mealReducer.meals, null, 2)}</pre> */}
         <h2>My Recipes</h2>
         <Grid container spacing={24}>
           {this.props.reduxState.mealReducer.recipes.map(this.renderRecipeCard)}

@@ -53,7 +53,7 @@ class Plan extends Component {
       <TableCell><Typography variant="subtitle1">{meal.recipe.title}</Typography></TableCell>
       <TableCell>
         <Typography variant="body2" component="div">
-          <ul >
+          <ul>
             {meal.recipe.ingredients.map(this.renderIngredient(meal.id))}
           </ul>
         </Typography>
@@ -82,7 +82,7 @@ class Plan extends Component {
           </TableBody>
         </Table>
 
-        {/* <pre>{JSON.stringify(this.props.reduxState, null, 2)}</pre> */}
+        {/* <pre>{JSON.stringify(this.props.reduxState.mealReducer, null, 2)}</pre> */}
       </div>
     );
   }

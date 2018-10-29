@@ -26,7 +26,6 @@ class MealCard extends Component {
     startDate: moment()
   }
 
-
   // Date box
   handleDateChange = (event) => {
     // console.log('event',event);
@@ -34,11 +33,13 @@ class MealCard extends Component {
       startDate: event
     });
   }
-
+ 
+  // Handle Assigning a date to a meal
   handleSubmitDate = () => {
     this.props.submitDate(this.props.meal.planned_id, this.state.startDate);
   }
   
+  // Render 
   render() {
     const { recipe, ...meal } = this.props.meal;
 
@@ -54,6 +55,14 @@ class MealCard extends Component {
           <Typography variant="h4">
             <div>{recipe.title}</div>
           </Typography>
+
+          {/* TEST WIP */}
+          <Typography variant="p">
+            <ol>
+              {recipe.directions.map(direction => <li>{direction.body}</li>)}
+            </ol>
+          </Typography>
+
         </CardContent>
 
         <CardActions>
