@@ -9,11 +9,24 @@ class UserPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="componentBody">
         <h1 id="welcome">
           Welcome, { this.props.user.username }!
         </h1>
         <p>Your ID is: {this.props.user.id}</p>
+        <p>Head over to the "My Recipes" tab to choose the recipes that you think you will want to make in the near future.<br />
+        When you have added all you want, then head over to the "Meal Plan" tab to organize your week!<br /> 
+        <hr/>
+
+        Features in the "Meal Plan":
+        <ul>
+          <li>Assign a day to meal.</li>
+          <li>See your planned meals in order.</li>
+          <li>Remove meals (But they will still be available in "My Recipes"</li>
+          <li>See all the ingredients that you will need for a meal</li>
+        </ul>
+
+        </p>
         <LogOutButton className="log-in" />
       </div>
     );
