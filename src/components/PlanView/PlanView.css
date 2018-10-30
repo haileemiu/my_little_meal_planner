@@ -16,3 +16,7 @@
 .componentBody {
   margin: 20px;
 }
+
+.cardContent {
+  height: 60px;
+}
