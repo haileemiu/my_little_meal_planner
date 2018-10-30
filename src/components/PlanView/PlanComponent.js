@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import SearchIcon from '@material-ui/icons/Search';
 import {
+  AppBar,
+  Button,
+  Toolbar,
+  InputBase,
   Table,
   TableBody,
   TableCell,
@@ -16,16 +21,42 @@ const styles = theme => ({
     width: '100%',
     marginTop: theme.spacing.unit * 3,
     overflowX: 'auto',
-
   },
   table: {
     minWidth: 700,
+  },
+  inputRoot: {
+    color: 'inherit',
+    width: '100%',
+  },
+  inputInput: {
+    paddingTop: theme.spacing.unit,
+    paddingRight: theme.spacing.unit,
+    paddingBottom: theme.spacing.unit,
+    paddingLeft: theme.spacing.unit * 10,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: 120,
+      '&:focus': {
+        width: 200,
+      },
+    },
+  },
+  searchIcon: {
+    width: theme.spacing.unit * 9,
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
 class Plan extends Component {
   state = {
-    // plannedMeals: []
+    
   }
   // Run on page load
   componentDidMount() {
@@ -61,12 +92,47 @@ class Plan extends Component {
     </TableRow>
   )
 
+  // WIP search
+  filterList = event => {
+    const resultArray = this.props.reduxState.mealReducer.meals.filter((meal) => {
+      console.log(meal);
+      let result = false;
+      for (let ingredient of meal.recipe.ingredients) {
+        if(ingredient.name.includes(event.target.value)){
+          result = true;
+        }
+      }
+      return result;
+    })
+    console.log('resultArray', resultArray)
+  }
+
+  
   render() {
     const { classes } = this.props;
 
     return (
       <div className="componentBody">
         <h3>My Plan</h3>
+
+        {/* WIP search */}
+        <AppBar position="static">
+          <Toolbar>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Ingredient"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              onChange={this.filterList}
+            />
+            <Button>Search</Button>
+          </Toolbar>
+        </AppBar>
+
         <Table className={classes.table}>
           <TableHead>
             <TableRow>
@@ -76,13 +142,12 @@ class Plan extends Component {
 
             </TableRow>
           </TableHead>
-
           <TableBody>
             {this.props.reduxState.mealReducer.meals.map(this.renderRow)}
           </TableBody>
         </Table>
 
-        {/* <pre>{JSON.stringify(this.props.reduxState.mealReducer, null, 2)}</pre> */}
+        <pre>{JSON.stringify(this.props.reduxState.mealReducer, null, 2)}</pre>
       </div>
     );
   }
