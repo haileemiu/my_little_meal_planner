@@ -1,0 +1,398 @@
+{
+  "recipe": {
+    "title": "",
+    "description": "",
+    "prepMin": 10,
+    "cookMin": 25,
+    "readyMin": 35,
+    "servings": 0,
+    "footnotes": "",
+    "source": "",
+    "isPublic": true,
+    "directions": [
+      {
+        "body": ""
+      },
+      {
+        "body": "" 
+      }, 
+      {
+        "body": ""
+      }, 
+      {
+        "body": ""
+      }, 
+      {
+        "body": ""
+      }, 
+      {
+        "body": ""
+      }, 
+      {
+        "body": ""
+      }, 
+      {
+        "body": ""
+      }, 
+      {
+        "body": ""
+      }, 
+      {
+        "body": ""
+      }
+      
+    ],
+    "ingredients": [
+      {
+        "name": "",
+        "measure": ""
+      },
+      {
+        "name": "",
+        "measure": ""
+      },
+      {
+        "name": "",
+        "measure": ""
+      },
+      {
+        "name": "",
+        "measure": ""
+      }, 
+      {
+        "name": "",
+        "measure": ""
+      },
+      {
+        "name": "",
+        "measure": ""
+      },
+      {
+        "name": "",
+        "measure": ""
+      },
+      {
+        "name": "",
+        "measure": ""
+      },
+      {
+        "name": "",
+        "measure": ""
+      }        
+    ]
+  }
+  ///
+
+{
+  "recipe": {
+    "title": "Roasted Pumpkin Seeds",
+    "description": "Here is an easy recipe for roasting fresh pumpkin seeds.",
+    "prepMin": 0,
+    "cookMin": 0,
+    "readyMin": 0,
+    "servings": 0,
+    "footnotes": "",
+    "source": "https://www.allrecipes.com/recipe/13768/roasted-pumpkin-seeds/",
+    "isPublic": true,
+    "directions": [
+      {
+        "body": "Preheat oven to 300 degrees F (150 degrees C)."
+      },
+      {
+        "body": "Toss seeds in a bowl with the melted butter and salt. Spread the seeds in a single layer on a baking sheet and bake for about 45 minutes or until golden brown; stir occasionally." 
+      }
+      
+    ],
+    "ingredients": [
+      {
+        "name": "raw whole pumpkin seeds",
+        "measure": "1 1/2 cup"
+      },
+      {
+        "name": "butter, melted",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "salt",
+        "measure": "pinch"
+      }
+    ]
+  }
+}
+// 
+
+{
+  "recipe": {
+    "title": "Chicken Pot Pie",
+    "description": "A delicious chicken pie made from scratch with carrots, peas and celery.",
+    "prepMin": 20,
+    "cookMin": 50,
+    "readyMin": 70,
+    "servings": 0,
+    "footnotes": "",
+    "source": "https://www.allrecipes.com/recipe/26317/chicken-pot-pie-ix/",
+    "isPublic": true,
+    "directions": [
+      {
+        "body": "Preheat oven to 425 degrees F (220 degrees C.)"
+      },
+      {
+        "body": "In a saucepan, combine chicken, carrots, peas, and celery. Add water to cover and boil for 15 minutes. Remove from heat, drain and set aside." 
+      }, 
+      {
+        "body": "In the saucepan over medium heat, cook onions in butter until soft and translucent. Stir in flour, salt, pepper, and celery seed. Slowly stir in chicken broth and milk. Simmer over medium-low heat until thick. Remove from heat and set aside."
+      }, 
+      {
+        "body": "Place the chicken mixture in bottom pie crust. Pour hot liquid mixture over. Cover with top crust, seal edges, and cut away excess dough. Make several small slits in the top to allow steam to escape."
+      }, 
+      {
+        "body": "Bake in the preheated oven for 30 to 35 minutes, or until pastry is golden brown and filling is bubbly. Cool for 10 minutes before serving."
+      }
+      
+    ],
+    "ingredients": [
+      {
+        "name": "skinless, boneless chicken breast halves - cubed",
+        "measure": "1 lb"
+      },
+      {
+        "name": "sliced carrots",
+        "measure": "1 cup"
+      },
+      {
+        "name": "frozen green peas",
+        "measure": "1 cup"
+      },
+      {
+        "name": "sliced celery",
+        "measure": "1/2 cup"
+      }, 
+      {
+        "name": "butter",
+        "measure": "1/2 cup"
+      },
+      {
+        "name": "chopped onion",
+        "measure": "1/3 cup"
+      },     
+      {
+        "name": "all-purpose flour",
+        "measure": "1/3 cup"
+      },
+      {
+        "name": "salt",
+        "measure": "1/2 tsp"
+      },    
+      {
+        "name": "black pepper",
+        "measure": "1/4 tsp"
+      },    
+      {
+        "name": "celery seed",
+        "measure": "1/4 tsp"
+      },    
+      {
+        "name": "chicken broth",
+        "measure": "1 3/4 cups"
+      },    
+      {
+        "name": "milk",
+        "measure": "2/3 cup"
+      },
+      {
+        "name": "unbaked pie crusts",
+        "measure": "2 (9 inch)"
+      },      
+    ]
+  }
+///
+
+{
+  "recipe": {
+    "title": "Oven Baked Chicken Strips",
+    "description": "Oven Baked Chicken Strips are real food, kid friendly, healthy! And this are Freezer Friendly Meal.",
+    "prepMin": 10,
+    "cookMin": 25,
+    "readyMin": 35,
+    "servings": 0,
+    "footnotes": "Freezer friendly meal",
+    "source": "https://happymoneysaver.com/oven-baked-chicken-strips/",
+    "isPublic": true,
+    "directions": [
+      {
+        "body": "Pre-heat oven to 350 degrees."
+      },
+      {
+        "body": "Cut chicken breasts into equal sized strips." 
+      }, 
+      {
+        "body": "Take 3 bowls and in 1 bowl add flour, salt, and pepper. Mix well. In another bowl beat 2 eggs. In third bowl add 1 cup Italian style panko bread crumbs."
+      }, 
+      {
+        "body": "Dip each piece of chicken in flour, then egg, and lastly panko bread crumbs."
+      }, 
+      {
+        "body": "Place chicken strips on a greased or parchment covered baking sheet."
+      }, 
+      {
+        "body": "Bake for 20-25 minutes or until cooked through. Turn Chicken strips halfway through cooking to ensure even cooking and crispiness."
+      }, 
+      {
+        "body": "Serve with ranch, BBQ sauce or your favorite dipping sauce."
+      }
+      
+    ],
+    "ingredients": [
+      {
+        "name": "skinless, boneless chicken breasts",
+        "measure": "2 count"
+      },
+      {
+        "name": "flour",
+        "measure": "1 cup"
+      },
+      {
+        "name": "salt",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "pepper",
+        "measure": "1 tsp"
+      }, 
+      {
+        "name": "eggs",
+        "measure": "2 count"
+      },
+      {
+        "name": "italian style panko break crumbs",
+        "measure": "1 cup"
+      }  
+    ]
+  }
+////
+{
+  "recipe": {
+    "title": "Mix-In Muffins",
+    "description": "",
+    "prepMin": 10,
+    "cookMin": 20,
+    "readyMin": 30,
+    "servings": 12,
+    "footnotes": "",
+    "source": "",
+    "isPublic": true,
+    "directions": [
+      {
+        "body": "Preheat oven to 400 degrees F and line 12 (1/3-cup) muffin cups with paper liners."
+      },
+      {
+        "body": "Into a bowl, sift together flour, sugar, baking powder, baking soda, and salt. Melt butter and in a small bowl whisk together with sour cream, egg, and vanilla. Stir butter mixture (and additional ingredients; *see note, below) into flour mixture until just combined. Divide the batter among muffin cups (this batter is thick and will not run easily like other muffin batters) and bake in middle of oven until golden and a tester comes out clean, about 20 minutes." 
+      }, 
+      {
+        "body": "Becoming a muffin master is easy. *Flavor the basic muffin batter below by adding, for example: 1 chopped banana and 3/4 cup semisweet chocolate chips; or 1 cup toasted almonds, 3/4 cup dried cranberries, and 1/4 teaspoon almond extract; or 1 cup chopped drained canned pineapple and 1 cup sweetened flaked coconut; or 1 cup chopped dried apricots and 1 tablespoon poppy seeds."
+      }
+    ],
+    "ingredients": [
+      {
+        "name": "all-purpose flour",
+        "measure": "1 1/2 cups"
+      },
+      {
+        "name": "sugar",
+        "measure": "1/3 cup"
+      },
+      {
+        "name": "baking powder",
+        "measure": "1 1/2 tsp"
+      },
+      {
+        "name": "baking soda",
+        "measure": "1/4 tsp"
+      }, 
+      {
+        "name": "salt",
+        "measure": "1/4 tsp"
+      },
+      {
+        "name": "unsalted butter",
+        "measure": "1/2 cup (1 stick)"
+      },
+      {
+        "name": "sour cream",
+        "measure": "1 cup"
+      },
+      {
+        "name": "egg",
+        "measure": "1 large"
+      },
+      {
+        "name": "vanilla",
+        "measure": "1 tsp"
+      }        
+    ]
+  }
+  ///
+  {
+    "recipe": {
+      "title": "Asian Ramen Salad",
+      "description": "This ridiculously amazing Asian ramen salad will have you and your guests going back for thirds and fourths. Everyone will be asking for the recipe and you'll want to bring this easy dish to every potluck!",
+      "prepMin": 130,
+      "cookMin": 0,
+      "readyMin": 130,
+      "servings": 8,
+      "footnotes": "",
+      "source": "https://www.tablefortwoblog.com/ridiculously-amazing-asian-ramen-salad/",
+      "isPublic": true,
+      "directions": [
+        {
+          "body": "In a large bowl, place coleslaw mix, sunflower seeds, sliced almonds, crushed ramen (see note below), and scallions."
+        },
+        {
+          "body": "In a large measuring cup, add vegetable oil, vinegar, and sugar. Whisk together. Don't worry if the sugar will not completely dissolve." 
+        }, 
+        {
+          "body": "Pour oil mixture over the coleslaw mix and toss everything together with a large spatula until everything is coated well."
+        }, 
+        {
+          "body": "Cover bowl with plastic wrap and chill in refrigerator for at least 2 hours."
+        }, 
+        {
+          "body": "Serve cold or room temperature."
+        }
+        
+      ],
+      "ingredients": [
+        {
+          "name": "coleslaw mix",
+          "measure": "1 - 16 ounce bag"
+        },
+        {
+          "name": "sunflower seeds",
+          "measure": "1 cup"
+        },
+        {
+          "name": "sliced almonds",
+          "measure": "1 cup"
+        },
+        {
+          "name": "ramen",
+          "measure": "2 - 3 ounce packages"
+        }, 
+        {
+          "name": "scallions, sliced",
+          "measure": "5 stalks"
+        },
+        {
+          "name": "vegetable oil",
+          "measure": "3/4 cup"
+        },
+        {
+          "name": "white vinegar",
+          "measure": "1/3 cup"
+        },
+        {
+          "name": "granulated sugar",
+          "measure": "1/2 cup "
+        },     
+      ]
+    

@@ -1,7 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
-import { func } from 'prop-types';
-import { compose } from 'redux';
+
 
 // Get all recipes on recipe view
 function* getRecipes() {

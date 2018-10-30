@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import moment from 'moment';
 import swal from 'sweetalert2';
 import MealCard from './MealCard';
 
@@ -85,10 +84,10 @@ class Meals extends Component {
   render() {
     return (
       <div className="scrollmenu componentBody">
+      {/* <pre>{JSON.stringify(this.props.reduxState.mealReducer.meals, null, 2)}</pre> */}
         <h3>My Meals</h3>
         <p>Click the picture to see recipe directions!</p>
         {this.state.plannedMeals.map(meal => <MealCard meal={meal} submitDate={this.submitDate} removeMeal={this.removeMeal}/>)}
-        {/* {JSON.stringify(this.props.reduxState.mealReducer.recipes, null, 2)} */}
       </div>
     );
   }

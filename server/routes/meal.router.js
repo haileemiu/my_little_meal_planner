@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('../modules/pool');
 const mealService = require('../services/meal');
 const mlcbService = require('../services/mlcb');
 

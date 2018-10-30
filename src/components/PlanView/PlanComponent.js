@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import moment from 'moment';
