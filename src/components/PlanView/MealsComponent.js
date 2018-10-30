@@ -5,17 +5,17 @@ import swal from 'sweetalert2';
 import MealCard from './MealCard';
 
 
-const styles = {
-  button: {
-    margin: 10,
-  },
-  card: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
-};
+// const styles = {
+//   button: {
+//     margin: 10,
+//   },
+//   card: {
+//     maxWidth: 345,
+//   },
+//   media: {
+//     height: 140,
+//   },
+// };
 
 
 class Meals extends Component {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import swal from 'sweetalert2';
+import RandomRecipe from './RandomRecipe';
 
 import { withStyles } from '@material-ui/core/styles';
 import 'typeface-roboto';
@@ -87,7 +88,7 @@ class MyRecipes extends Component {
       <CardActions>
         <Button
           variant="fab"
-          color="#b9baa3"
+          color="primary"
           aria-label="Add"
           className={this.props.classes.button}
           onClick={this.handleAddClick(recipe)}>
@@ -106,6 +107,7 @@ class MyRecipes extends Component {
         <Grid container spacing={24}>
           {this.props.reduxState.mealReducer.recipes.map(this.renderRecipeCard)}
         </Grid>
+        <RandomRecipe />
       </div>
     );
   }
