@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import SearchIcon from '@material-ui/icons/Search';
 import {
+  AppBar,
+  Card,
+  Button,
+  Toolbar,
+  InputBase,
   Table,
   TableBody,
   TableCell,
@@ -16,16 +22,43 @@ const styles = theme => ({
     width: '100%',
     marginTop: theme.spacing.unit * 3,
     overflowX: 'auto',
-
   },
   table: {
     minWidth: 700,
+  },
+  inputRoot: {
+    color: 'inherit',
+    width: '100%',
+  },
+  inputInput: {
+    paddingTop: theme.spacing.unit,
+    paddingRight: theme.spacing.unit,
+    paddingBottom: theme.spacing.unit,
+    paddingLeft: theme.spacing.unit * 10,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: 120,
+      '&:focus': {
+        width: 200,
+      },
+    },
+  },
+  searchIcon: {
+    width: theme.spacing.unit * 9,
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
 class Plan extends Component {
   state = {
-    // plannedMeals: []
+    searchArray: [],
+    searchWord: ''
   }
   // Run on page load
   componentDidMount() {
@@ -61,12 +94,59 @@ class Plan extends Component {
     </TableRow>
   )
 
+  // WIP search
+  filterList = () => {
+    const resultArray = this.props.reduxState.mealReducer.meals.filter((meal) => {
+      console.log('meal filtering through', meal);
+      let result = false;
+      for (let ingredient of meal.recipe.ingredients) {
+        if(ingredient.name.includes(this.state.searchWord)){
+          result = true;
+        }
+      }
+      this.setState({searchArray: result});
+      return result;
+    })
+    console.log('resultArray', resultArray);
+  }
+
+  // WIP search
+  handleChange = (event) => {
+    this.setState({ searchWord: event.target.value })
+  }
+
+  // WIP search
+  renderSearchRow = () => {
+    <TableRow>{JSON.stringify(this.state.searchArray)}</TableRow>
+  }
+  
   render() {
     const { classes } = this.props;
 
     return (
       <div className="componentBody">
         <h3>My Plan</h3>
+
+        {/* WIP search */}
+        <AppBar position="static">
+          <Toolbar>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Ingredient"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              onChange={this.handleChange}
+              value={this.state.searchWord}
+            />
+            <Button onClick={this.filterList}>Search</Button>
+          </Toolbar>
+        </AppBar>
+          <Card>{this.renderSearch}</Card>
+
         <Table className={classes.table}>
           <TableHead>
             <TableRow>
@@ -76,10 +156,10 @@ class Plan extends Component {
 
             </TableRow>
           </TableHead>
-
-          <TableBody>
-            {this.props.reduxState.mealReducer.meals.map(this.renderRow)}
-          </TableBody>
+          {/* <TableBody>{this.props.reduxState.mealReducer.meals.map(this.renderRow)}</TableBody> */}
+          {/* WIP search */}
+          {/* <TableBody>{this.state.searchArray.map(this.renderRow)}</TableBody> */}
+          {this.state.searchArray.length > 0 ? <TableBody>{this.state.searchArray.map(this.renderSearchRow)}</TableBody> : <TableBody>{this.props.reduxState.mealReducer.meals.map(this.renderRow)}</TableBody>}
         </Table>
 
         {/* <pre>{JSON.stringify(this.props.reduxState.mealReducer, null, 2)}</pre> */}
