@@ -1,5 +1,5 @@
 .scrollmenu {
-  /* display: inline-block; */
+
   overflow: auto;
   white-space: nowrap;
   width: 100%;
@@ -13,10 +13,11 @@
   white-space: normal;
 }
 
+.cardContent {
+  height: 70px;
+}
+
 .componentBody {
   margin: 20px;
 }
 
-.cardContent {
-  height: 60px;
-}
