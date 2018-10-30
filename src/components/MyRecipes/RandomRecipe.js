@@ -1,8 +1,8 @@
-// {/* WIP: feature-random-recipe */ }
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Card,CardContent, Typography } from '@material-ui/core';
+import './MyRecipes.css';
+
 class RandomRecipe extends Component {
   state = {
     randomRecipe: ''
@@ -24,16 +24,17 @@ class RandomRecipe extends Component {
 
   render() {
     return (
-      <Card>
-        <Typography variant="h5">I can't decide!</Typography>
+      <Card className="container">
+        
         <Button
           color="primary"
+          variant="outlined"
           onClick={this.renderRandom}
         >
         Random Recipe
         </Button>
         <CardContent>
-          {this.state.randomRecipe ? <Typography>Why not try the {this.state.randomRecipe}?</Typography> : null}
+          {this.state.randomRecipe ? <Typography variant="subheading">How about the {this.state.randomRecipe}?</Typography> : null}
           {/* {JSON.stringify(this.props.reduxState.mealReducer.recipes, null, 2)} */}
         </CardContent>
       </Card>
