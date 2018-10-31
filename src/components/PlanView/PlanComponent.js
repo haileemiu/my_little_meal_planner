@@ -5,7 +5,6 @@ import moment from 'moment';
 import SearchIcon from '@material-ui/icons/Search';
 import {
   AppBar,
-  Card,
   Button,
   Toolbar,
   InputBase,
@@ -119,7 +118,7 @@ class Plan extends Component {
       <div className="componentBody">
         <h3>My Plan</h3>
 
-        <AppBar position="static">
+        <AppBar position="relative" className="bar">
           <Toolbar>
             <div className={classes.searchIcon}>
               <SearchIcon />
