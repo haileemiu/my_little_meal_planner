@@ -77,8 +77,8 @@ class Plan extends Component {
     }
   }
 
-  renderIngredient = (mealId, index) => (ingredient) => (
-    <li key={`${mealId}-${ingredient.name}-${index}`}>{ingredient.measure} - {ingredient.name}</li>
+  renderIngredient = (mealId) => (ingredient, index) => (
+    <li key={`${mealId}-${ingredient.measure}-${ingredient.name}-${index}`}>{ingredient.measure} - {ingredient.name}</li>
   )
 
   renderRow = (meal) => (
