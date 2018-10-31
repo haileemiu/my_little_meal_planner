@@ -18,10 +18,8 @@ class RandomRecipe extends Component {
     this.setState({
       randomRecipe: randomRecipe[0].title
     })
-
   }
   
-
   render() {
     return (
       <Card className="container">
@@ -34,7 +32,7 @@ class RandomRecipe extends Component {
         Random Recipe
         </Button>
         <CardContent>
-          {this.state.randomRecipe ? <Typography variant="subheading">How about the {this.state.randomRecipe}?</Typography> : null}
+          {this.state.randomRecipe ? <Typography variant="subheading">How about {this.state.randomRecipe}?</Typography> : null}
           {/* {JSON.stringify(this.props.reduxState.mealReducer.recipes, null, 2)} */}
         </CardContent>
       </Card>
