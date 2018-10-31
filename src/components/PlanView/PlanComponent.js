@@ -95,19 +95,34 @@ class Plan extends Component {
   )
 
   // WIP search
+  // filterList = () => {
+  //   const resultArray = this.props.reduxState.mealReducer.meals.filter((meal) => {
+  //     console.log('meal filtering through', meal);
+  //     let result = false;
+  //     for (let ingredient of meal.recipe.ingredients) {
+  //       if(ingredient.name.includes(this.state.searchWord)){
+  //         result = true;
+  //       }
+  //     }
+  //     this.setState({searchArray: result});
+  //     return result;
+  //   })
+  //   console.log('resultArray', resultArray);
+  // }
   filterList = () => {
     const resultArray = this.props.reduxState.mealReducer.meals.filter((meal) => {
-      console.log('meal filtering through', meal);
+      console.log(meal);
       let result = false;
       for (let ingredient of meal.recipe.ingredients) {
-        if(ingredient.name.includes(this.state.searchWord)){
+        if (ingredient.name.includes(this.state.searchWord)) {
           result = true;
         }
       }
-      this.setState({searchArray: result});
       return result;
     })
-    console.log('resultArray', resultArray);
+    this.setState({ searchArray: resultArray })
+    console.log('resultArray', resultArray)
+    console.log('searchArray', this.state.searchArray)
   }
 
   // WIP search
@@ -119,7 +134,7 @@ class Plan extends Component {
   renderSearchRow = () => {
     // <TableRow>{JSON.stringify(this.state.searchArray)}</TableRow>
   }
-  
+
   render() {
     const { classes } = this.props;
 
@@ -128,6 +143,8 @@ class Plan extends Component {
         <h3>My Plan</h3>
 
         {/* WIP search */}
+
+
         <AppBar position="static">
           <Toolbar>
             <div className={classes.searchIcon}>
@@ -145,8 +162,11 @@ class Plan extends Component {
             <Button onClick={this.filterList}>Search</Button>
           </Toolbar>
         </AppBar>
-          <Card>{this.renderSearch}</Card>
 
+        {/* WORKS!! */}
+        {/* <ul>{this.state.searchArray.map(meal => <li>{meal.recipe.title}</li>)}</ul> */}
+
+            {this.state.searchArray.length > 0 ?  <ul>{this.state.searchArray.map(meal => <li>{meal.recipe.title}</li>)}</ul> : null}
         <Table className={classes.table}>
           <TableHead>
             <TableRow>
@@ -156,10 +176,10 @@ class Plan extends Component {
 
             </TableRow>
           </TableHead>
-          {/* <TableBody>{this.props.reduxState.mealReducer.meals.map(this.renderRow)}</TableBody> */}
+          <TableBody>{this.props.reduxState.mealReducer.meals.map(this.renderRow)}</TableBody>
           {/* WIP search */}
           {/* <TableBody>{this.state.searchArray.map(this.renderRow)}</TableBody> */}
-          {this.state.searchArray.length > 0 ? <TableBody>{this.state.searchArray.map(this.renderSearchRow)}</TableBody> : <TableBody>{this.props.reduxState.mealReducer.meals.map(this.renderRow)}</TableBody>}
+          {/* {this.state.searchArray.length > 0 ? <TableBody>{this.state.searchArray.map(this.renderSearchRow)}</TableBody> : <TableBody>{this.props.reduxState.mealReducer.meals.map(this.renderRow)}</TableBody>} */}
         </Table>
 
         {/* <pre>{JSON.stringify(this.props.reduxState.mealReducer, null, 2)}</pre> */}
