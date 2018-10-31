@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import './PlanView.css';
 import SearchIcon from '@material-ui/icons/Search';
 import {
   AppBar,
@@ -53,6 +54,7 @@ const styles = theme => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  
 });
 
 class Plan extends Component {
@@ -97,19 +99,18 @@ class Plan extends Component {
   filterList = (event) => {
     if (event.key === 'Enter') {
 
-    
-    const resultArray = this.props.reduxState.mealReducer.meals.filter((meal) => {
-      console.log(meal);
-      let result = false;
-      for (let ingredient of meal.recipe.ingredients) {
-        if (ingredient.name.includes(this.state.searchWord)) {
-          result = true;
+      const resultArray = this.props.reduxState.mealReducer.meals.filter((meal) => {
+        console.log(meal);
+        let result = false;
+        for (let ingredient of meal.recipe.ingredients) {
+          if (ingredient.name.includes(this.state.searchWord)) {
+            result = true;
+          }
         }
-      }
-      return result;
-    })
-    this.setState({ searchArray: resultArray })
-  }
+        return result;
+      })
+      this.setState({ searchArray: resultArray })
+    }
   }
 
   handleChange = (event) => {
@@ -138,16 +139,13 @@ class Plan extends Component {
               value={this.state.searchWord}
               onKeyPress={this.filterList}
             />
-            <div style={{float: 'left'}}>
-            
-            </div>
           </Toolbar>
-          <ul className="list">
-        Planned recipes that in include {this.state.searchWord}:
-        {this.state.searchArray.length > 0 ? <ul>{this.state.searchArray.map(meal => <li key={meal.id}>{meal.recipe.title}</li>)}</ul> : null}
-        </ul>
+
+ 
         </AppBar>
-        
+        Planned recipes that in include {this.state.searchWord}:
+            {this.state.searchArray.length > 0 ? <ul>{this.state.searchArray.map(meal => <li key={meal.id}>{meal.recipe.title}</li>)}</ul> : null}
+
         <Table className={classes.table}>
           <TableHead>
             <TableRow>
