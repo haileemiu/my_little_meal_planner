@@ -6,6 +6,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import {
   AppBar,
   Button,
+  Card,
   Toolbar,
   InputBase,
   Table,
@@ -93,7 +94,10 @@ class Plan extends Component {
     </TableRow>
   )
 
-  filterList = () => {
+  filterList = (event) => {
+    if (event.key === 'Enter') {
+
+    
     const resultArray = this.props.reduxState.mealReducer.meals.filter((meal) => {
       console.log(meal);
       let result = false;
@@ -105,6 +109,7 @@ class Plan extends Component {
       return result;
     })
     this.setState({ searchArray: resultArray })
+  }
   }
 
   handleChange = (event) => {
@@ -131,12 +136,18 @@ class Plan extends Component {
               }}
               onChange={this.handleChange}
               value={this.state.searchWord}
+              onKeyPress={this.filterList}
             />
-            <Button onClick={this.filterList}>Search</Button>
+            <div style={{float: 'left'}}>
+            
+            </div>
           </Toolbar>
-        </AppBar>
-
+          <ul className="list">
+        Planned recipes that in include {this.state.searchWord}:
         {this.state.searchArray.length > 0 ? <ul>{this.state.searchArray.map(meal => <li key={meal.id}>{meal.recipe.title}</li>)}</ul> : null}
+        </ul>
+        </AppBar>
+        
         <Table className={classes.table}>
           <TableHead>
             <TableRow>

@@ -22,5 +22,11 @@
 }
 
 .bar {
-  max-width: 50%
+  /* max-width: 50%; */
+  float: left;
 }
+
+/* .list {
+  float: right;
+
+} */
