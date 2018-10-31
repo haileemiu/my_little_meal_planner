@@ -30,7 +30,8 @@ class MealCard extends Component {
   state = {
     startDate: '',
     showPicture: true,
-    open: false
+    open: false, 
+    plannedDate: false
   }
 
   // Date box
@@ -42,9 +43,9 @@ class MealCard extends Component {
   }
 
   // Handle Assigning a date to a meal
-  handleSubmitDate = () => {
-    this.props.submitDate(this.props.meal.planned_id, this.state.startDate);
-
+  handleSubmitDate =  () => {
+     this.props.submitDate(this.props.meal.planned_id, this.state.startDate);
+    this.setState({plannedDate: true})
   }
 
   // Toggle between picture and direction
@@ -60,6 +61,11 @@ class MealCard extends Component {
     this.setState({ open: false });
   }
 
+  componentDidMount() {
+    if(this.props.meal.planned_day) {
+      this.setState({plannedDate: true})
+    }
+  }
 
   // Render 
   render() {
@@ -87,8 +93,6 @@ class MealCard extends Component {
           </Dialog>
         </CardActionArea>
 
-
-
         <CardContent className="cardContent">
           <Typography variant="h5" className="wrapText">
             <div>{recipe.title}</div>
@@ -98,13 +102,9 @@ class MealCard extends Component {
           {/* TODO: rerender */}
           {/* Show check mark if the meal has an assigned day */}
           <Typography variant="h6">
-            {meal.planned_day ? <i className="fas fa-check"><span> Meal planned!</span></i> : null}
+            {this.state.plannedDate ? <i className="fas fa-check"><span> Meal planned!</span></i> : null}
           </Typography>
 
-          {/* WIP display date */}
-          {/* <Typography variant="subheading">
-            {meal.planned_day ? <div>{moment(meal.planned_day).startOf('day').fromNow()}</div> : null}
-          </Typography> */}
         </CardContent>
 
         <CardActions>

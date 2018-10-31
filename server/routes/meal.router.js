@@ -54,17 +54,24 @@ router.put('/:id', async (req, res) => {
 // Get back the planned meals that have dates assigned
 router.get('/planned', async (req, res) => {
   try {
+    // Gets rows from db
     const meals = await mealService.getAssignedPlannedMeals(req.user.id);
-    // console.log('meals:', meals)
+     console.log('meals:', meals)
+    // Stores an array of promises
     const detailPromises = meals.map(meal => mlcbService.recipeDetail(meal.recipe_id));
+    console.log('detailPromises:', detailPromises);
 
+    // Runs all of the promises and waits before moves on
     const recipeDetails = await Promise.all(detailPromises);
+    console.log('recipeDetails:', recipeDetails);
 
+    // Maps over the rows from the db, creates an object that has the db info as well as the recipe api info
     const response = meals.map(meal => ({
       ...meal,
       recipe: recipeDetails.find(recipe => recipe.id === meal.recipe_id)
     }));
-
+    console.log('Response:', response);
+    
     res.send(response);
   } catch (error) {
     console.log('Error in get /planned:', error)
