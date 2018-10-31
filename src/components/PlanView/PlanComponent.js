@@ -75,8 +75,8 @@ class Plan extends Component {
     }
   }
 
-  renderIngredient = (mealId) => (ingredient) => (
-    <li key={`${mealId}-${ingredient.name}-${ingredient.measure}`}>{ingredient.measure} - {ingredient.name}</li>
+  renderIngredient = (mealId, index) => (ingredient) => (
+    <li key={`${mealId}-${ingredient.name}-${index}`}>{ingredient.measure} - {ingredient.name}</li>
   )
 
   renderRow = (meal) => (
@@ -117,7 +117,7 @@ class Plan extends Component {
 
   // WIP search
   renderSearchRow = () => {
-    <TableRow>{JSON.stringify(this.state.searchArray)}</TableRow>
+    // <TableRow>{JSON.stringify(this.state.searchArray)}</TableRow>
   }
   
   render() {

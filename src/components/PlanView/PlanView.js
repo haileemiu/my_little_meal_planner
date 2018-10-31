@@ -11,7 +11,7 @@ class PlanView extends Component {
       <div>
         <Meals />
         <Plan />
-        
+        {/* <pre>{JSON.stringify(this.props.reduxState.mealReducer.meals, null, 2)}</pre> */}
       </div>
      );
   }

@@ -17,7 +17,7 @@ function* addMeal(action) {
   // console.log('Action.payload in addMeal:',action.payload);
   try {
     yield call(axios.post, `/api/meal`, action.payload);
-  
+    
   } catch (error) {
     console.log('ERROR in addMeal:', error);
   }

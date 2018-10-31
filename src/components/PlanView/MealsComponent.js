@@ -87,7 +87,7 @@ class Meals extends Component {
       {/* <pre>{JSON.stringify(this.props.reduxState.mealReducer.meals, null, 2)}</pre> */}
         <h3>My Meals</h3>
         <p>Click the picture to see recipe directions!</p>
-        {this.state.plannedMeals.map(meal => <MealCard meal={meal} submitDate={this.submitDate} removeMeal={this.removeMeal}/>)}
+        {this.state.plannedMeals.map((meal, index) => <MealCard key={index} meal={meal} submitDate={this.submitDate} removeMeal={this.removeMeal}/>)}
       </div>
     );
   }

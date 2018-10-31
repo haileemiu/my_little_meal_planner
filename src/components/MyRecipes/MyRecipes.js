@@ -70,7 +70,7 @@ class MyRecipes extends Component {
 
   // Entire recipe card
   renderRecipeCard = (recipe) => (
-    <Card className={this.props.classes.card} key={recipe.id}>
+    <Card className={this.props.classes.card} key={recipe.imageId}>
       <CardMedia
         className={this.props.classes.media}
         image={recipe.imageId ? `https://mlcb.tyvoid.net/api/v1/images/${recipe.imageId}` : placeholderImage}
