@@ -6,8 +6,6 @@ import './PlanView.css';
 import SearchIcon from '@material-ui/icons/Search';
 import {
   AppBar,
-  Button,
-  Card,
   Toolbar,
   InputBase,
   Table,
@@ -100,7 +98,7 @@ class Plan extends Component {
     if (event.key === 'Enter') {
 
       const resultArray = this.props.reduxState.mealReducer.meals.filter((meal) => {
-        console.log(meal);
+        
         let result = false;
         for (let ingredient of meal.recipe.ingredients) {
           if (ingredient.name.includes(this.state.searchWord)) {
