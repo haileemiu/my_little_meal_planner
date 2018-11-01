@@ -121,8 +121,8 @@ class Plan extends Component {
     return (
       <div className="componentBody">
         <h3>My Plan</h3>
-
-        <AppBar position="relative" className="bar">
+        
+        <AppBar position="static" className="bar">
           <Toolbar>
             <div className={classes.searchIcon}>
               <SearchIcon />
