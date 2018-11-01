@@ -39,10 +39,18 @@ const deleteMeal = async (id) => {
   return pool.query(query, [id]);
 };
 
+// WIP
+// const deleteAllMeals = async (user_id) => {
+//   const query = `DELETE FROM "planned_meals" WHERE "user_id"=$1;`;
+
+//   return pool.query(query, [user_id])
+// }
+
 module.exports = {
   addMeal,
   getUsersMeals,
   updateDate,
   getAssignedPlannedMeals,
-  deleteMeal
+  deleteMeal,
+  
 };

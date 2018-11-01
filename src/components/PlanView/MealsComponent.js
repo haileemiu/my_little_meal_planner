@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import swal from 'sweetalert2';
 import MealCard from './MealCard';
+import { Button } from '@material-ui/core';
 
 
 // const styles = {
@@ -69,7 +70,9 @@ class Meals extends Component {
     }
   }
 
+  clearAllMeals = () => {
 
+  }
   // update date
   submitDate = (meal_id, startDate) => {
     this.props.dispatch({ type: 'ADD_DATE', payload: { newDate: startDate.toISOString(), meal_id } });
@@ -84,6 +87,8 @@ class Meals extends Component {
     })
   }
 
+  clearAllMeals
+
   render() {
     return (
       <div className="scrollmenu componentBody">
@@ -91,6 +96,8 @@ class Meals extends Component {
         <h3>My Meals</h3>
         <p>Click the picture to see recipe directions!</p>
         {this.state.plannedMeals.map((meal, index) => <MealCard key={index} meal={meal} submitDate={this.submitDate} removeMeal={this.removeMeal}/>)}
+        {/* WIP */}
+        {/* <Button onClick={this.clearAllMeals}>Clear All Meals</Button> */}
       </div>
     );
   }
