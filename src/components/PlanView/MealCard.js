@@ -99,9 +99,6 @@ class MealCard extends Component {
             <div>{recipe.title}</div>
           </Typography>
 
-          {/* WIP */}
-          {/* TODO: rerender */}
-          {/* Show check mark if the meal has an assigned day */}
           <Typography variant="h6">
             {this.state.plannedDate ? <i className="fas fa-check"><span> Meal planned!</span></i> : null}
           </Typography>
@@ -125,7 +122,7 @@ class MealCard extends Component {
           </Button>
           <Button
             variant="contained"
-            color="secondary"
+            // color="secondary"
             styles={styles.button}
             onClick={this.props.removeMeal(meal.planned_id)}
           >

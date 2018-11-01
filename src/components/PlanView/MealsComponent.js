@@ -44,7 +44,8 @@ class Meals extends Component {
     // Alert successfully removed
     const { value } = await swal({
       type: 'warning',
-      title: 'Do you want to remove the meal from your current Meal Plan?',
+      title: 'Do you want to remove the meal from your current "Meal Plan"?',
+      text: 'It will still be available in "My Recipes".',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
@@ -58,11 +59,13 @@ class Meals extends Component {
         plannedMeals: prevState.plannedMeals.filter(meal => meal.planned_id !== meal_id)
       }));
 
-      swal(
-        'Removed',
-        'The meal as been removed from your Meal Plan',
-        'success'
-      )
+      swal({
+        position: 'center',
+        type: 'success',
+        title: 'The meal has been removed',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
   }
 

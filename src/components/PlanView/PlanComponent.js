@@ -122,7 +122,7 @@ class Plan extends Component {
       <div className="componentBody">
         <h3>My Plan</h3>
         
-        <AppBar position="static" className="bar">
+        <AppBar position="static" className="bar" style={{backgroundColor: '#6870A2'}}>
           <Toolbar>
             <div className={classes.searchIcon}>
               <SearchIcon />
