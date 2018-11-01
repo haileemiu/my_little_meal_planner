@@ -27,15 +27,15 @@ class Meals extends Component {
     this.getAvailableMeals()
   }
 
-  // Get the specific meals saved by that user
+  // Get the specific meals saved by that user and display
   getAvailableMeals = async () => {
     try {
-      // mealsResponse is what would come back in the .then
+      // mealsResponse is what would come back in the .then (if I was not using async await)
       const mealsResponse = await axios({ method: 'GET', url: '/api/meal' });
-
+      console.log('mealsResponse:', mealsResponse)
       this.setState({ plannedMeals: mealsResponse.data });
     } catch (error) {
-      console.log('Error in getAvaliableMeals:', error)
+      console.log('Error in getAvailableMeals:', error)
     }
   }
 

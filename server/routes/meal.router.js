@@ -18,7 +18,8 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     // Gets planned meals from service
-    const plannedMeals = await mealService.getPlannedMeals(req.user.id);
+    const plannedMeals = await mealService.getUsersMeals(req.user.id);
+    console.log('plannedMeals:', plannedMeals);
 
     // Gets recipe details promises for each planned meal
     // recipeDetails sends the HTTP request immediately
@@ -71,7 +72,7 @@ router.get('/planned', async (req, res) => {
       recipe: recipeDetails.find(recipe => recipe.id === meal.recipe_id)
     }));
     console.log('Response:', response);
-    
+
     res.send(response);
   } catch (error) {
     console.log('Error in get /planned:', error)

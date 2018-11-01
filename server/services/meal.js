@@ -6,8 +6,8 @@ const addMeal = async (recipeId, userId) => {
   return pool.query(query, [recipeId, userId])
 };
 
-const getPlannedMeals = async userId => {
-  const query = `SELECT id as planned_id, recipe_id, planned_day FROM "planned_meals" WHERE "user_id"=$1;`;
+const getUsersMeals = async userId => {
+  const query = `SELECT id as planned_id, recipe_id, planned_day FROM "planned_meals" WHERE "user_id"=$1 ORDER BY "id";`;
 
   const results = await pool.query(query, [userId]);
 
@@ -41,7 +41,7 @@ const deleteMeal = async (id) => {
 
 module.exports = {
   addMeal,
-  getPlannedMeals,
+  getUsersMeals,
   updateDate,
   getAssignedPlannedMeals,
   deleteMeal
