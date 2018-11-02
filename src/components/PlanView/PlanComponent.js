@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import './PlanView.css';
+import SearchList from './SearchList';
 import SearchIcon from '@material-ui/icons/Search';
 import {
   AppBar,
@@ -27,7 +28,7 @@ const styles = theme => ({
   },
   inputRoot: {
     color: 'inherit',
-    width: '100%',
+    width: '30%',
   },
   inputInput: {
     paddingTop: theme.spacing.unit,
@@ -58,7 +59,8 @@ const styles = theme => ({
 class Plan extends Component {
   state = {
     searchArray: [],
-    searchWord: ''
+    searchWord: '', 
+    searched: false,
   }
   // Run on page load
   componentDidMount() {
@@ -106,7 +108,7 @@ class Plan extends Component {
         }
         return result;
       })
-      this.setState({ searchArray: resultArray })
+      this.setState({ searchArray: resultArray, searched: true })
     }
   }
 
@@ -135,16 +137,19 @@ class Plan extends Component {
               onChange={this.handleChange}
               value={this.state.searchWord}
               onKeyPress={this.filterList}
+              style={{ backgroundColor: '#6e75a0' }}
             />
-            <div className="list">
-          Planned recipes that in include {this.state.searchWord}:
-            {this.state.searchArray.length > 0 ? <ul>{this.state.searchArray.map(meal => <li key={meal.id}>{meal.recipe.title}</li>)}</ul> : null}
-        </div>
+            <SearchList 
+              searched={this.state.searched}
+              searchArray={this.state.searchArray}
+              searchWord={this.state.searchWord}
+              />
+           
           </Toolbar>
 
 
         </AppBar>
-        
+
         <Table className={classes.table}>
           <TableHead>
             <TableRow>
