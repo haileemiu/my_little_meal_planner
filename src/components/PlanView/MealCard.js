@@ -110,7 +110,7 @@ class MealCard extends Component {
           </Typography>
 
           <Typography variant="h6">
-            {this.state.plannedDate ? <i className="fas fa-check"><span> Meal planned!</span></i> : null}
+            {this.state.plannedDate ? <i className="fas fa-check" style={{color: 'blue'}}><span style={{color: 'blue'}}> Meal planned!</span></i> : null}
           </Typography>
 
         </CardContent>

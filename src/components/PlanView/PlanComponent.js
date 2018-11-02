@@ -146,8 +146,6 @@ class Plan extends Component {
               />
            
           </Toolbar>
-
-
         </AppBar>
 
         <Table className={classes.table}>

@@ -32,7 +32,7 @@ class RandomRecipe extends Component {
         Random Recipe
         </Button>
         <div>
-          {this.state.randomRecipe ? <Typography variant="title">Try the <span style={{fontStyle: 'italic'}}>{this.state.randomRecipe}</span></Typography> : null}
+          {this.state.randomRecipe ? <Typography variant="title"><span style={{fontStyle: 'italic'}}>{this.state.randomRecipe}</span></Typography> : null}
           {/* {JSON.stringify(this.props.reduxState.mealReducer.recipes, null, 2)} */}
         </div>
       </div>
