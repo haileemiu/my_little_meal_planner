@@ -83,12 +83,12 @@ class Plan extends Component {
 
   renderRow = (meal) => (
     <TableRow key={meal.id}>
-      <TableCell><Typography variant="h5">{moment(meal.planned_day).format('dddd MMM Do')}</Typography></TableCell>
+      <TableCell style={{verticalAlign:'top'}}><Typography variant="h5">{moment(meal.planned_day).format('dddd MMM Do')}</Typography></TableCell>
 
-      <TableCell><Typography variant="h6">{meal.recipe.title}</Typography></TableCell>
-      <TableCell>
+      <TableCell style={{verticalAlign:'top'}}><Typography variant="h6">{meal.recipe.title}</Typography></TableCell>
+      <TableCell >
         <Typography variant="body2" component="div">
-          <ul>
+          <ul style={{marginTop:'-5px'}}>
             {meal.recipe.ingredients.map(this.renderIngredient(meal.id))}
           </ul>
         </Typography>
