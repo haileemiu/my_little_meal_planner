@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
     }));
     console.log('RESPONSE',response);
 
-    // Send the response to
+    // Send the response to the MealsComponent
     res.send(response);
   } catch (error) {
     res.sendStatus(500);

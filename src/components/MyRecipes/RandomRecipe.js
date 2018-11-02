@@ -22,7 +22,7 @@ class RandomRecipe extends Component {
   
   render() {
     return (
-      <Card className="container">
+      <div className="container">
         
         <Button
           color="primary"
@@ -31,11 +31,11 @@ class RandomRecipe extends Component {
         >
         Random Recipe
         </Button>
-        <CardContent>
-          {this.state.randomRecipe ? <Typography variant="subheading">How about {this.state.randomRecipe}?</Typography> : null}
+        <div>
+          {this.state.randomRecipe ? <Typography variant="title">Try the <span style={{fontStyle: 'italic'}}>{this.state.randomRecipe}</span></Typography> : null}
           {/* {JSON.stringify(this.props.reduxState.mealReducer.recipes, null, 2)} */}
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     );
   }
 }

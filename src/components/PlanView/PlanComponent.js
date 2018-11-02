@@ -52,7 +52,7 @@ const styles = theme => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  
+
 });
 
 class Plan extends Component {
@@ -97,7 +97,7 @@ class Plan extends Component {
   filterList = (event) => {
     if (event.key === 'Enter') {
       const resultArray = this.props.reduxState.mealReducer.meals.filter((meal) => {
-        
+
         let result = false;
         for (let ingredient of meal.recipe.ingredients) {
           if (ingredient.name.toLowerCase().includes(this.state.searchWord.toLowerCase())) {
@@ -120,8 +120,8 @@ class Plan extends Component {
     return (
       <div className="componentBody">
         <h3>My Plan</h3>
-        
-        <AppBar position="static" className="bar" style={{backgroundColor: '#6870A2'}}>
+
+        <AppBar position="static" className="bar" style={{ backgroundColor: '#6870A2' }}>
           <Toolbar>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -136,13 +136,15 @@ class Plan extends Component {
               value={this.state.searchWord}
               onKeyPress={this.filterList}
             />
+            <div className="list">
+          Planned recipes that in include {this.state.searchWord}:
+            {this.state.searchArray.length > 0 ? <ul>{this.state.searchArray.map(meal => <li key={meal.id}>{meal.recipe.title}</li>)}</ul> : null}
+        </div>
           </Toolbar>
 
- 
-        </AppBar>
-        Planned recipes that in include {this.state.searchWord}:
-            {this.state.searchArray.length > 0 ? <ul>{this.state.searchArray.map(meal => <li key={meal.id}>{meal.recipe.title}</li>)}</ul> : null}
 
+        </AppBar>
+        
         <Table className={classes.table}>
           <TableHead>
             <TableRow>
