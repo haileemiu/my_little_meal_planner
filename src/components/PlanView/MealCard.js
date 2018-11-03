@@ -88,7 +88,7 @@ class MealCard extends Component {
         <CardActionArea>
           <CardMedia
             style={styles.media}
-            image={recipe.images && recipe.images.length ? `https://mlcb.tyvoid.net/api/v1/images/${recipe.images[0].id}` : placeholderImage}
+            image={recipe.images && recipe.images.length ? `${recipe.images[0].url}?size=500x500` : placeholderImage}
             title="Meal Image"
             onClick={this.handleClickPicture}
           />
