@@ -100,13 +100,32 @@ class MyRecipes extends Component {
 
   // Render
   render() {
+    // let alphabetical = this.props.reduxState.mealReducer.recipes.sort();
+
+    function compare(a, b) {
+      // Use toUpperCase() to ignore character casing
+      const titleA = a.title.toUpperCase();
+      const titleB = b.title.toUpperCase();
+    
+      let comparison = 0;
+      if (titleA > titleB) {
+        comparison = 1;
+      } else if (titleA < titleB) {
+        comparison = -1;
+      }
+      return comparison;
+    }
+    
+    let alphabetical = this.props.reduxState.mealReducer.recipes.sort(compare);
+      console.log('alphabetical:', alphabetical)
+
     return (
       <div className="componentBody">
-        {/* <pre>{JSON.stringify(this.props.reduxState.mealReducer.meals, null, 2)}</pre> */}
+        {/* <pre>{JSON.stringify(this.props.reduxState.mealReducer.recipes, null, 2)}</pre> */}
         <h2>My Recipes</h2>
         <RandomRecipe />
         <Grid container spacing={24}>
-          {this.props.reduxState.mealReducer.recipes.map(this.renderRecipeCard)}
+          {alphabetical.map(this.renderRecipeCard)}
         </Grid>
       </div>
     );

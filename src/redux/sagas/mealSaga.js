@@ -2,10 +2,14 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 
-// Get all recipes on recipe view
+ // Get all recipes for the 'My Recipes' view
 function* getRecipes() {
   try {
+    // Go to mlcb.router
+    // recipes = recipe list (no details)
     const recipes = yield call(axios.get, '/api/mlcb');
+
+    // dispatch another action that goes to the meal reducer and sends the recipes list
     yield put({ type: 'GET_RECIPES_RESPONSE', payload: recipes });
   } catch (error) {
     console.log('ERROR in getRecipes:', error);

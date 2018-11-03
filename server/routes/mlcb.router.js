@@ -3,12 +3,16 @@ const router = express.Router();
 
 const mlcbService = require('../services/mlcb');
 
-// Get all the recipes back for "My Recipes View"
+ // Get all recipes for the 'My Recipes' view
 router.get('/', async (req, res) => {
   try {
+    // Go to the mlcb service
     const list = await mlcbService.recipeList();
+    console.log('list:', list)
 
+    // Send back list of recipes (no details) to meal saga
     res.send(list);
+    
   } catch (error) {
     res.sendStatus(500);
   }
