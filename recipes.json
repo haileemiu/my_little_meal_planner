@@ -81,6 +81,7 @@
       }        
     ]
   }
+}
   ///
 
 {
@@ -395,4 +396,332 @@
           "measure": "1/2 cup "
         },     
       ]
-    
+
+///
+{
+  "recipe": {
+    "title": "Baked Salmon",
+    "description": "Easy Baked Salmon in Foil with Garlic, Lemon, and Herbs. One of the best simple, healthy recipes. Turns out perfectly every time!",
+    "prepMin": 15,
+    "cookMin": 15,
+    "readyMin": 30,
+    "servings": 0,
+    "footnotes": "This recipe is best enjoyed the day that it is made, as salmon usually dries out when reheated. If you have leftover salmon, try serving it room temperature over a salad the next day or flaking and scrambling it with eggs.",
+    "source": "https://www.wellplated.com/baked-salmon-in-foil/",
+    "isPublic": true,
+    "directions": [
+      {
+        "body": "Remove the salmon from the refrigerator and let stand at room temperature for 10 minutes while you prepare the other ingredients. Heat oven to 375 degrees F. Line a large baking dish or rimmed baking sheet with a large piece of aluminum foil."
+      },
+      {
+        "body": "Lightly coat the foil with baking spay, then arrange 2 springs of the rosemary down the middle. Cut one of the lemons into thin slices and arrange half the slices down the middle with the rosemary. Place the salmon on top." 
+      }, 
+      {
+        "body": "Drizzle the salmon with the olive oil and sprinkle with the salt and pepper. Rub to coat, then scatter the garlic cloves over the top. Lay the remaining rosemary and lemon slices on top of the salmon. Juice the second lemon, then pour the juice over the top."
+      }, 
+      {
+        "body": "Fold the sides of the aluminum foil up and over the top of the salmon until it is completely enclosed. If your piece of foil is not large enough, place a second piece on top and fold the edges under so that it forms a sealed packet. Leave a little room inside the foil for air to circulate."
+      }, 
+      {
+        "body": "Bake the salmon for 15-20 minutes, until the salmon is almost completely cooked through at the thickest part. The cooking time will vary based on the thickness of your salmon. If your side is thinner (around 1-inch thick) check several minutes early to ensure your salmon does not overcook. If your piece is very thick (1 1/2 inches or more), it may need longer."
+      }, 
+      {
+        "body": "Remove the salmon from the oven and carefully open the foil so that the top of the fish is completely uncovered (be careful of hot steam). Change the oven setting to broil, then return the fish to the oven and broil for 3 minutes, until the top of the salmon and the garlic are slightly golden and the fish is cooked through. Watch the salmon closely as it broils to make sure it doesn’t overcook and the garlic does not burn. Remove the salmon from the oven. If it still appears a bit underdone, you can wrap the foil back over the top and let it rest for a few minutes. Do not let it sit too long—salmon can progress from 'not done' to 'over done' very quickly. As soon as it flakes easily with a fork, it's ready."
+      }, 
+      {
+        "body": "To serve, cut the salmon into portions. Sprinkle with additional fresh herbs or top with an extra squeeze of lemon as desired."
+      }, 
+      
+    ],
+    "ingredients": [
+      {
+        "name": "salmon boneless (skin on or off, depending upon your preference)",
+        "measure": "2 lbs"
+      },
+      {
+        "name": "fresh rosemary or fresh herbs of your choice; do not use dried herbs",
+        "measure": "5 springs"
+      },
+      {
+        "name": "lemons divided, plus extra for serving as desired",
+        "measure": "2 small "
+      },
+      {
+        "name": "extra virgin olive oil",
+        "measure": "2 tbsp"
+      }, 
+      {
+        "name": "kosher salt",
+        "measure": "1 tsp"
+      },
+      {
+        "name": "ground black pepper",
+        "measure": "1/4 tsp"
+      },
+      {
+        "name": "garlic peeled and roughly chopped",
+        "measure": "4 cloves"
+      },
+      {
+        "name": "chopped fresh herbs such as basil, thyme, parsley, dill, or green onion (optional)",
+        "measure": "additional"
+      }
+    ]
+  }
+}    
+////
+{
+  "recipe": {
+    "title": "Meatballs",
+    "description": "When I get a craving for meatballs, I have a very specific meatball in mind: They’re completely tender all the way through without even a hint of toughness. They’re big enough to require a fork, but modest enough to justify several on the plate. Maybe some onions and fresh herbs mixed in. Nothing fancy. Totally old-school.",
+    "prepMin": 0,
+    "cookMin": 0,
+    "readyMin": 0,
+    "servings": 28,
+    "footnotes": "Doubling this recipe: This recipe can be doubled for larger crowds. Storing leftover meatballs: Store leftover meatballs, either on their own or in a sauce, in a covered container in the refrigerator for up to 5 days. Reheat over low heat in a saucepan or in the microwave. Make-ahead meatballs: Meatballs can be shaped and kept refrigerated up to a day ahead. Arrange them in a casserole dish or on a baking sheet, but don't squish together. Cover and refrigerate for up to 1 day. Freezing uncooked meatballs: Prepare the meatballs through Step 5. Arrange in a single layer on a baking sheet and freeze until solid. Transfer the meatballs to a freezer container or freezer bag, and freeze for up to 1 month. (Meatballs can be frozen for longer, but tend to develop freezer burn.) Thaw meatballs in the refrigerator overnight before cooking. Freezing cooked meatballs: Let the cooked meatballs cool completely, then arrange in a single layer on baking sheet and freeze until solid. Transfer to a freezer container or bag and freeze for up to 2 months. Frozen meatballs can be thawed overnight in the refrigerator or reheated directly from the freezer. Reheat meatballs in a simmering sauce for 10 to 15 minutes or in a warm oven for 10 to 15 minutes.",
+    "source": "https://www.thekitchn.com/how-to-make-meatballs-cooking-lessons-from-the-kitchn-108048",
+    "isPublic": true,
+    "directions": [
+      {
+        "body": "Combine the milk and breadcrumbs. Place the breadcrumbs in a small bowl, pour in the milk, and stir to combine. Set aside while preparing the rest of the meatball mixture. The breadcrumbs will absorb the milk and become soggy."
+      },
+      {
+        "body": "Whisk the egg, salt, pepper, Parmesan, and parsley. Whisk the egg in a large bowl until broken up. Add the Parmesan, parsley, salt, and a generous quantity of black pepper, and whisk to combine." 
+      }, 
+      {
+        "body": "Add the ground meat. Add the meat to the egg mixture. Use your hands to thoroughly mix the egg mixture into the ground meat."
+      }, 
+      {
+        "body": "Add the onions and soaked breadcrumbs. Add the onions, garlic, and soaked breadcrumbs. Mix them thoroughly into the meat with your fingers. Try not to overwork the meat; pinch the meat between your fingers rather than kneading it."
+      }, 
+      {
+        "body": "Form the meat into meatballs. Have a rimmed baking sheet ready. Pinch off a piece of the meat mixture and gently roll between your hands to form 1 1/2-inch meatballs (about 2 tablespoons each). Continue shaping until all the meat is used, placing the meatballs on the baking sheet so that they are not touching."
+      }, 
+      {
+        "body": "Option 1: Roast or broil the meatballs in the oven. Broil the meatballs 20 to 25 minutes, or roast at 400°F for 25 to 30 minutes. (Watch closely if making meatballs made with lean meat.) The meatballs are done when cooked through and the outsides are browned, and when they register 165°F in the middle on an instant-read thermometer. Serve immediately."
+      }, 
+      {
+        "body": "Option 2: Cook the meatballs directly in sauce. Bring a marinara or other pasta sauce to a simmer and add as many meatballs as will fit comfortably in the pan. Cover and simmer for 30 to 35 minutes. The meatballs are done when they're cooked through and register 165°F in the middle on an instant-read thermometer. Serve immediately."
+      }
+      
+    ],
+    "ingredients": [
+      {
+        "name": "fine, dry breadcrumbs",
+        "measure": "1/2 cup"
+      },
+      {
+        "name": "milk",
+        "measure": "1/2 cup"
+      },
+      {
+        "name": "egg",
+        "measure": "1 large"
+      },
+      {
+        "name": "grated Parmesan cheese",
+        "measure": "1/2 cup"
+      }, 
+      {
+        "name": "finely chopped fresh parsley leaves",
+        "measure": "1/4 cup"
+      },
+      {
+        "name": "kosher salt",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "Freshly ground black pepper",
+        "measure": "to taste"
+      },
+      {
+        "name": "ground meat, such as beef, pork, turkey, chicken, or veal, or a mix",
+        "measure": "1 lb"
+      },
+      {
+        "name": "finely chopped onion (or grated on a coarse grater)",
+        "measure": "1/2 cup"
+      },
+      {
+        "name": "garlic, minced",
+        "measure": "1 clove"
+      }         
+    ]
+  }
+}
+///{
+  "recipe": {
+    "title": "",
+    "description": "",
+    "prepMin": 10,
+    "cookMin": 25,
+    "readyMin": 35,
+    "servings": 0,
+    "footnotes": "",
+    "source": "",
+    "isPublic": true,
+    "directions": [
+      {
+        "body": ""
+      },
+      {
+        "body": "" 
+      }, 
+      {
+        "body": ""
+      }, 
+      {
+        "body": ""
+      }, 
+      {
+        "body": ""
+      }, 
+      {
+        "body": ""
+      }, 
+      {
+        "body": ""
+      }, 
+      {
+        "body": ""
+      }, 
+      {
+        "body": ""
+      }, 
+      {
+        "body": ""
+      }
+      
+    ],
+    "ingredients": [
+      {
+        "name": "",
+        "measure": ""
+      },
+      {
+        "name": "",
+        "measure": ""
+      },
+      {
+        "name": "",
+        "measure": ""
+      },
+      {
+        "name": "",
+        "measure": ""
+      }, 
+      {
+        "name": "",
+        "measure": ""
+      },
+      {
+        "name": "",
+        "measure": ""
+      },
+      {
+        "name": "",
+        "measure": ""
+      },
+      {
+        "name": "",
+        "measure": ""
+      },
+      {
+        "name": "",
+        "measure": ""
+      }        
+    ]
+  }
+}
+  ///
+
+{
+  "recipe": {
+    "title": "Roasted Pumpkin Seeds",
+    "description": "Here is an easy recipe for roasting fresh pumpkin seeds.",
+    "prepMin": 0,
+    "cookMin": 0,
+    "readyMin": 0,
+    "servings": 0,
+    "footnotes": "",
+    "source": "https://www.allrecipes.com/recipe/13768/roasted-pumpkin-seeds/",
+    "isPublic": true,
+    "directions": [
+      {
+        "body": "Preheat oven to 300 degrees F (150 degrees C)."
+      },
+      {
+        "body": "Toss seeds in a bowl with the melted butter and salt. Spread the seeds in a single layer on a baking sheet and bake for about 45 minutes or until golden brown; stir occasionally." 
+      }
+      
+    ],
+    "ingredients": [
+      {
+        "name": "raw whole pumpkin seeds",
+        "measure": "1 1/2 cup"
+      },
+      {
+        "name": "butter, melted",
+        "measure": "2 tsp"
+      },
+      {
+        "name": "salt",
+        "measure": "pinch"
+      }
+    ]
+  }
+}
+///
+{
+  "recipe": {
+    "title": "Beef Enchiladas Rancheras",
+    "description": "A baked dish of browned ground beef, tomatoes and enchilada sauce wrapped in corn tortillas then topped with more enchilada sauce and cheese",
+    "prepMin": 15,
+    "cookMin": 30,
+    "readyMin": 45,
+    "servings": 6,
+    "footnotes": "https://www.readyseteat.com/recipes-Beef-Enchiladas-Rancheras-3333",
+    "source": "",
+    "isPublic": true,
+    "directions": [
+      {
+        "body": "Preheat oven to 375°F. Spray 13x9-inch baking dish with cooking spray."
+      },
+      {
+        "body": "Cook beef in large skillet over medium heat 7 minutes or until meat crumbles and is no longer pink; drain. Add drained tomatoes and 1 cup enchilada sauce; blend well." 
+      }, 
+      {
+        "body": "Place tortillas in damp paper towels; microwave on HIGH 1 minute or just until flexible. Place about 1/3 cup beef mixture evenly on each tortilla. Top each with about 1 tablespoon cheese. Roll up and place seam side down in baking dish. Top with remaining sauce and remaining 1 cup cheese, spreading evenly and covering tortilla edges."
+      }, 
+      {
+        "body": "Bake covered 30 minutes. Serve with a dollop of sour cream, if desired."
+      }
+    ],
+    "ingredients": [
+      {
+        "name": "ground sirloin beef (90% lean)",
+        "measure": "1 lb"
+      },
+      {
+        "name": "RoTel Original Diced Tomatoes & Green Chilies, drained",
+        "measure": "1 can (10 oz each)"
+      },
+      {
+        "name": "Rosarita Enchilada Sauce",
+        "measure": "1 can (29 oz each)"
+      },
+      {
+        "name": "corn tortillas (6 inch)",
+        "measure": "12"
+      }, 
+      {
+        "name": "shredded Cheddar and Monterey Jack cheese blend",
+        "measure": "2 cups"
+      },
+      {
+        "name": "sour cream",
+        "measure": "optional"
+      }
+    ]
+  }
+}
