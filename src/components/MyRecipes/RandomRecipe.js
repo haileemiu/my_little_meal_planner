@@ -11,7 +11,9 @@ class RandomRecipe extends Component {
   renderRandom = () => {
     // write a random number generator to pick 1 recipe id
     // start with hard code number of recipes available
-    let randomNumber = Math.floor(Math.random() * 8) + 1;
+    let total = this.props.reduxState.mealReducer.recipes.length;
+   
+    let randomNumber = Math.floor(Math.random() * total) + 1;
     let randomRecipe = this.props.reduxState.mealReducer.recipes.filter(r => r.id === randomNumber) ;
     // console.log('RandomRecipe:', randomRecipe);
     // console.log('title:', randomRecipe[0].title);
