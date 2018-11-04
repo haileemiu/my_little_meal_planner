@@ -38,10 +38,13 @@ function* addDate(action){
   }
 }
 
-// Delete meal from db
+// Delete specific meal from db
 function* removeMeal(action){
   try {
+    // Call to meal reducer delete by id
+    // payload {meal_id: 111}
     yield call(axios.delete, `/api/meal/delete/${action.payload.meal_id}`, action.payload);
+    // console.log('DELETE action.payload:', action.payload)
     yield put({type: 'REMOVE_MEAL_RESPONSE', payload: action.payload.meal_id});
  
   } catch (error) {

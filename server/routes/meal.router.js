@@ -69,7 +69,6 @@ router.post('/', async (req, res) => {
 });
 
 
-
 // Update date
 router.put('/:id', async (req, res) => {
   try {
@@ -81,10 +80,10 @@ router.put('/:id', async (req, res) => {
   }
 })
 
-
-// Delete row
+// Delete row based on meal id
 router.delete('/delete/:id', async (req, res) => {
   try {
+    // Go to meal service with id
     await mealService.deleteMeal(req.params.id);
 
     res.sendStatus(204);

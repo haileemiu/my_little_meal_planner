@@ -5,20 +5,6 @@ import swal from 'sweetalert2';
 import MealCard from './MealCard';
 import { Button } from '@material-ui/core';
 
-
-// const styles = {
-//   button: {
-//     margin: 10,
-//   },
-//   card: {
-//     maxWidth: 345,
-//   },
-//   media: {
-//     height: 140,
-//   },
-// };
-
-
 class Meals extends Component {
   state = {
     plannedMeals: [],
@@ -54,6 +40,7 @@ class Meals extends Component {
     })
 
     if (value) {
+      // Dispatch REMOVE_MEAL with payload of meal id
       this.props.dispatch({ type: 'REMOVE_MEAL', payload: { meal_id } });
 
       this.setState(prevState => ({
@@ -70,9 +57,12 @@ class Meals extends Component {
     }
   }
 
-  clearAllMeals = () => {
+  // WIP
+  // clearAllMeals = () => {
+  //   console.log('clicked');
 
-  }
+  // }
+
   // update date
   submitDate = (meal_id, startDate) => {
     this.props.dispatch({ type: 'ADD_DATE', payload: { newDate: startDate.toISOString(), meal_id } });
@@ -86,8 +76,6 @@ class Meals extends Component {
       timer: 1500
     })
   }
-
-  clearAllMeals
 
   render() {
     return (

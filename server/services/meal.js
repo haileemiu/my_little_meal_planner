@@ -33,9 +33,11 @@ const getAssignedPlannedMeals = async (userId) => {
   return results.rows;
 };
 
+// Come from meal router to delete specific meal
 const deleteMeal = async (id) => {
   const query = `DELETE FROM "planned_meals" WHERE id=$1`;
 
+  // send back promise
   return pool.query(query, [id]);
 };
 

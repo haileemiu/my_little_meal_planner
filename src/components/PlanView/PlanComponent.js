@@ -99,7 +99,6 @@ class Plan extends Component {
   filterList = (event) => {
     if (event.key === 'Enter') {
       const resultArray = this.props.reduxState.mealReducer.meals.filter((meal) => {
-
         let result = false;
         for (let ingredient of meal.recipe.ingredients) {
           if (ingredient.name.toLowerCase().includes(this.state.searchWord.toLowerCase())) {
