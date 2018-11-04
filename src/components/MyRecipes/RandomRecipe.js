@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button, Card,CardContent, Typography } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
 import './MyRecipes.css';
 
 class RandomRecipe extends Component {
@@ -35,13 +35,11 @@ class RandomRecipe extends Component {
         </Button>
         <div>
           {this.state.randomRecipe ? <Typography variant="title"><span style={{fontStyle: 'italic'}}>{this.state.randomRecipe}</span></Typography> : null}
-          {/* {JSON.stringify(this.props.reduxState.mealReducer.recipes, null, 2)} */}
         </div>
       </div>
     );
   }
 }
-
 
 const mapStateToProps = (reduxState) => {
   return { reduxState };

@@ -158,8 +158,6 @@ class Plan extends Component {
           </TableHead>
           <TableBody>{this.props.reduxState.mealReducer.meals.map(this.renderRow)}</TableBody>
         </Table>
-
-        {/* <pre>{JSON.stringify(this.props.reduxState.mealReducer, null, 2)}</pre> */}
       </div>
     );
   }

@@ -20,7 +20,3 @@ class SearchList extends Component {
 }
 
 export default SearchList;
-
-// {this.state.searchArray.length > 0 ? <ul>{this.state.searchArray.map(meal => <li key={meal.id}>{meal.recipe.title}</li>)}</ul> : null}
-
-// after button is clicked, need conditional

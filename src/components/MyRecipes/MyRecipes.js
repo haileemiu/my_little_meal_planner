@@ -100,10 +100,8 @@ class MyRecipes extends Component {
 
   // Render
   render() {
-    // let alphabetical = this.props.reduxState.mealReducer.recipes.sort();
-
+    // function to order the cards abc order
     function compare(a, b) {
-      // Use toUpperCase() to ignore character casing
       const titleA = a.title.toUpperCase();
       const titleB = b.title.toUpperCase();
     
