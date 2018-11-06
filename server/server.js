@@ -1,4 +1,5 @@
 
+const path = require('path');
 const express = require('express');
 require('dotenv').config();
 
@@ -29,7 +30,7 @@ app.use('/api/mlcb', mlcbRouter);
 app.use('/api/meal', mealRouter)
 
 // Serve static files
-app.use(express.static('build'));
+app.use(express.static(path.join(__dirname, '../build')));
 
 // App Set //
 const PORT = process.env.PORT || 5000;

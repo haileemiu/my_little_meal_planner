@@ -4,9 +4,9 @@ CREATE TABLE person (
     password VARCHAR (1000) NOT NULL
 );
 
-CREATE TABLE "planned_meals" (
-    "id" SERIAL PRIMARY KEY,
-    "user_id" INT NOT NULL,
-    "recipe_id" INT NOT NULL,
-    "planned_day" DATE
+CREATE TABLE planned_meals (
+    id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL,
+    recipe_id INT NOT NULL,
+    planned_day DATE
 );
