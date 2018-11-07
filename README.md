@@ -1,14 +1,14 @@
 # Prime Solo Project
 As a student at Prime Digital Academy, I was given 2 weeks to create an app of my choosing. The main requirement was for it to be a full stack application (database to front end). We were provided a base repository with user side authentication.  
 
-I was required to create a scoping document in order to get my project approve. Here is a link to my original scope via Google Docs https://docs.google.com/document/d/1GBoCaqoATsNtgP0JSGVSZADa9FQPFx0l01OTN74EHRU/edit?usp=sharing.
-It includes, wire frames, schedule, base mode (MVP), possible stretch goals, wire frames, and database documentation. 
+I was required to create a scoping document in order to get my project approve. Here is a link to my original scope via Google Docs https://docs.google.com/document/d/1slDlMRmjlFrBdInhptoqbZJNvoSCrzVkexCo5xxHdWI/edit?usp=sharing.
+It includes, wire frames, schedule, base mode (MVP), possible stretch goals, and database documentation. 
 
 ---
 
 ## Application Overview
 
-This will be a micro service to add to Nikko Miu's My Little Cookbook app that stores our personal family recipes. It will use the recipe API from My Little Cookbook to pull in all available recipes. 
+My app will help with planning weekly menus and seeing what ingredients you need. It will add to Nikko Miu's "My Little Cookbook" app that stores our personal family recipes. It will use the recipe API from "My Little Cookbook" to pull in all available recipes. 
 
 ## Problems
 - Getting home late and not knowing what I am going to have for dinner.
@@ -21,7 +21,7 @@ This will be a micro service to add to Nikko Miu's My Little Cookbook app that s
 - Paid services 
 - Don’t make a cumulative shopping list
 - Focused on dieting
-- More complicated than necessary.
+- More complicated than necessary
 
 ## Solution
 My Little Meal Planner app will use my personal recipes to plan meals for specific dates. 
@@ -36,7 +36,8 @@ User will be able to view a cumulative list of all the necessary ingredients for
 
 
 ---
-
+#Original Directions
+---
 # Prime Project
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
 
