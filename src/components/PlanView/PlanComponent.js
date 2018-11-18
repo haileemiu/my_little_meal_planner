@@ -83,7 +83,7 @@ class Plan extends Component {
 
   renderRow = (meal) => (
     <TableRow key={meal.id}>
-      <TableCell style={{verticalAlign:'top'}}><Typography variant="h5">{moment(meal.planned_day).utc().format('dddd MMM Do')}</Typography></TableCell>
+      <TableCell style={{verticalAlign:'top'}}><Typography variant="h5">{moment(meal.planned_day).utc().startOf('day').format('dddd MMM Do')}</Typography></TableCell>
 
       <TableCell style={{verticalAlign:'top'}}><Typography variant="h6">{meal.recipe.title}</Typography></TableCell>
       <TableCell >
