@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-const mlcbService = require('../services/mlcb');
+const mlcbRepo = require('../Repos/mlcb');
 
  // Get all recipes for the 'My Recipes' view
 router.get('/', async (req, res) => {
   try {
-    // Go to the mlcb service
-    const list = await mlcbService.recipeList();
+    // Go to the mlcb Repo
+    const list = await mlcbRepo.recipeList();
     console.log('list:', list)
 
     // Send back list of recipes (no details) to meal saga
@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
 // Used twice
 router.get('/:id', async (req, res) => {
   try {
-    const recipe = await mlcbService.recipeDetail(req.params.id);
+    const recipe = await mlcbRepo.recipeDetail(req.params.id);
 
     res.send(recipe);
   } catch (error) {

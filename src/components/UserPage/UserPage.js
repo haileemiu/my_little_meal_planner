@@ -18,12 +18,14 @@ class UserPage extends Component {
           When you have added all you want, then head over to the "Meal Plan" tab to organize your week! </p><br />
         <hr />
 
-        Features in the "Meal Plan":
+        Features:
         <ul>
-          <li>Assign a day to meal.</li>
-          <li>See your planned meals in order.</li>
-          <li>Remove meals (But they will still be available in "My Recipes"</li>
-          <li>See all the ingredients that you will need for a meal</li>
+          <li>Assign and reassign a day to meal.</li>
+          <li>See your planned meals in chronological order.</li>
+          <li>Remove meals from plan (But they will still be available in "My Recipes").</li>
+          <li>See all the ingredients that you will need for a meal.</li>
+          <li>Search for the ingredients that are in only your planned meals.</li>
+          <li>In "Meal Plan", click the meal's picture and see a list of directions for the recipe.</li>
         </ul>
 
 
