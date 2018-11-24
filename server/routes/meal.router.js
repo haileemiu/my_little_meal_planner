@@ -1,16 +1,17 @@
 const express = require('express');
 const router = express.Router();
-// my service with with queries
+
 const mealService = require('../services/meal');
 const mlcbService = require('../services/mlcb');
 
-// Get all meals that have been added by user 
+// Get all meals that have been added by user
+// View in the top horizontal scroll
 router.get('/', async (req, res) => {
   try {
     // Get user's planned meals
-    const plannedMeals = await mealService.getUsersMeals(req.user.id);
+    const plannedMeals = await mealService.getUserMeals(req.user.id);
 
-    // Get recipe detail promises for each planned meal
+    // Get recipe detail and save as a promise for each planned meal
     // recipeDetail function will send the HTTP request immediately
     const promises = plannedMeals.map(plannedMeal => mlcbService.recipeDetail(plannedMeal.recipe_id));
 
@@ -22,7 +23,6 @@ router.get('/', async (req, res) => {
       ...plannedMeal,
       recipe: recipeResponses.find(recipe => recipe.id == plannedMeal.recipe_id)
     }));
-    console.log('RESPONSE',response);
 
     // Send the response to the MealsComponent
     res.send(response);
@@ -32,9 +32,10 @@ router.get('/', async (req, res) => {
 });
 
 // Get back the user's planned meals that have dates assigned
+// View in the plan table component
 router.get('/planned', async (req, res) => {
   try {
-    // Get rows from db
+    // Get meals from db
     const meals = await mealService.getAssignedPlannedMeals(req.user.id);
 
     // Store an array of promises
@@ -48,7 +49,6 @@ router.get('/planned', async (req, res) => {
       ...meal,
       recipe: recipeDetails.find(recipe => recipe.id === meal.recipe_id)
     }));
-    console.log('Response:', response);
 
     res.send(response);
   } catch (error) {
@@ -68,8 +68,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-
-// Update date
+// Update date to plan a meal
 router.put('/:id', async (req, res) => {
   try {
     await mealService.updateDate(req.body.newDate, req.params.id);
@@ -80,7 +79,7 @@ router.put('/:id', async (req, res) => {
   }
 })
 
-// Delete row based on meal id
+// Delete based on meal id
 router.delete('/delete/:id', async (req, res) => {
   try {
     // Go to meal service with id
