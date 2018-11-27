@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const mlcbRepo = require('../Repos/mlcb');
+const mlcbRepo = require('../repos/mlcb');
 
  // Get all recipes for the 'My Recipes' view
 router.get('/', async (req, res) => {
