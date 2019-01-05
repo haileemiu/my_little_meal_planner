@@ -36,8 +36,7 @@ router.get('/', async (req, res) => {
 router.get('/planned', async (req, res) => {
   try {
     // Get meals from db
-    const meals = await mealRepo
-    .getAssignedPlannedMeals(req.user.id);
+    const meals = await mealRepo.getAssignedPlannedMeals(req.user.id);
 
     // Store an array of promises
     const detailPromises = meals.map(meal => mlcbRepo.recipeDetail(meal.recipe_id));
@@ -53,7 +52,7 @@ router.get('/planned', async (req, res) => {
 
     res.send(response);
   } catch (error) {
-    console.log('Error in get /planned:', error)
+    console.log('ERROR in get /planned:', error)
     res.sendStatus(500);
   }
 })

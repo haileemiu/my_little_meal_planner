@@ -44,7 +44,7 @@ passport.use('local', new LocalStrategy({
           done(null, false);
         }
       }).catch((err) => {
-        console.log('error', err);
+        console.log('ERROR:', err);
         done(null, {});
       });
   })));

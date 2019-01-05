@@ -115,7 +115,7 @@ class MyRecipes extends Component {
     }
     
     let alphabetical = this.props.reduxState.mealReducer.recipes.sort(compare);
-      console.log('alphabetical:', alphabetical)
+      // console.log('alphabetical:', alphabetical)
 
     return (
       <div className="componentBody">

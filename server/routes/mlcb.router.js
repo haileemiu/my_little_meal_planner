@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
   try {
     // Go to the mlcb Repo
     const list = await mlcbRepo.recipeList();
-    console.log('list:', list)
+    // console.log('list:', list)
 
     // Send back list of recipes (no details) to meal saga
     res.send(list);

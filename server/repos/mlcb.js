@@ -4,7 +4,7 @@ const axios = require('axios');
 const recipeDetail = async recipeId => {
   const response = await axios({
     method: 'GET',
-    url: `https://mlcb.tyvoid.net/api/v1/recipes/${recipeId}`
+    url: `https://mlcb-stage.tyvoid.net/api/v1/recipes/${recipeId}`
   });
 
   return response.data.recipe;
@@ -12,9 +12,9 @@ const recipeDetail = async recipeId => {
 
 // Get all recipes for the 'My Recipes' view
 const recipeList = async () => {
-  const response = await axios({ method: 'GET', url: 'https://mlcb.tyvoid.net/api/v1/recipes' });
+  const response = await axios({ method: 'GET', url: 'https://mlcb-stage.tyvoid.net/api/v1/recipes' });
   // Send back the recipe data
-  console.log('recipeList:', response.data);
+  // console.log('recipeList:', response.data);
   return response.data;
 };
 

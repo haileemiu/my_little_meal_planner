@@ -19,10 +19,10 @@ class Meals extends Component {
     try {
       // mealsResponse is what would come back in the .then (if I was not using async await)
       const mealsResponse = await axios({ method: 'GET', url: '/api/meal' });
-      console.log('mealsResponse:', mealsResponse)
+      // console.log('mealsResponse:', mealsResponse)
       this.setState({ plannedMeals: mealsResponse.data });
     } catch (error) {
-      console.log('Error in getAvailableMeals:', error)
+      console.log('ERROR in getAvailableMeals:', error)
     }
   }
 
